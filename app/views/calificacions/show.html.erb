@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+ <div class="small-2 large-2 columns">
+    <%= imdb_style_rating_for @calificacion, current_client%>
+     <%= rating_for_user @calificacion, current_client, "visual_effects" %>
+  </div>
+  <br>
+  <div class="small-2 large-4 columns">
+    <% if current_client %>
+      How would you rate how cool this item is?
+      <br>
+      Coolness: <%= rating_for @calificacion, "coolness", :enable_half => true%>
+<br>
+<%end%>
+</div>
+
+<%= link_to 'Edit', edit_calificacion_path(@calificacion) %> |
+<%= link_to 'Back', calificacions_path %>

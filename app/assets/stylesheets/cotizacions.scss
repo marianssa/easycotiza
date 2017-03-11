@@ -1,0 +1,25 @@
+// Place all the styles related to the cotizacions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+body { padding-top: 0px; }
+.wrapper {    
+	margin-top: 80px;
+	margin-bottom: 20px;
+
+}
+
+.form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+}
+
+.buttoncute{
+    background-color: white;
+    color: black;
+    border: 2px solid #FF00BF; /* Rosado */
+    padding: 15px 32px;
+}

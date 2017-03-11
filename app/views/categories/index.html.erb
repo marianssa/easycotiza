@@ -1,0 +1,192 @@
+<p id="notice"><%= notice %></p>
+<div style="text-align: center">
+  <h2>Categorias</h2>
+</div>
+
+
+ <div class="container">
+  <div class="top_content">
+  <div class="row">
+  <div class="col-lg-5 col-m-7">
+  <h3 style="text-align: center;">Construcciones</h3>
+
+  <div class ="form-control" align="center">
+      <table>
+        <% @construccion.each do |category| %>
+          <tr>
+            <%if category.nombre =="construccion casa"%>
+              <td>
+                <h3>Construccion de casas </h3>
+                <%= link_to image_tag("construccioncasa.png", :alt => "construccion de casas",:width => 40, :height => 40),catalogos_path(:category_id=>1),class: "button2"%>
+               </td>
+            <% elsif category.nombre=="construccion edificio"%>
+              <td>
+                <h3>Construccion de edificios </h3>
+                <%=link_to image_tag("construccionedificio.png", :alt => "construccion de edificios",:width => 40, :height => 40), catalogos_path(:category_id=>2), class: "button2"%>
+              </td>
+
+            <%elsif category.nombre =="construccion galpones"%>
+              <td>
+                <h3>Construccion de galpones </h3>
+                <%=link_to image_tag("galpon.png", :alt => "construccion de galpones",:width => 40, :height => 40),catalogos_path(:category_id=>3), class: "button2"%>
+ 
+              </td>
+
+            <%elsif category.nombre=="construccion Piscina"%>
+              <td>
+                <h3>Construcciones de piscinas </h3>
+                  <%=link_to image_tag("piscina.png", :alt => "construccion de piscinas",:width => 40, :height => 40), catalogos_path(:category_id=> 4), class: "button2"%>
+              </td>
+
+            <%elsif category.nombre=="arquitectos"%>
+               <td>
+                 <h3>Arquitectos</h3>
+                 <%=link_to image_tag("arquitecto.png", :alt => "arquitectos",:width => 40, :height => 40), catalogos_path(:category_id=>5), class: "button2"%>
+               </td>
+
+            <%elsif category.nombre=="demoliciones"%>
+              <td>
+                <h3>Demoliciones</h3>
+                <%=link_to image_tag("demolicion.png", :alt => "demoliciones",:width => 40, :height => 40), catalogos_path(:category_id=>6), class: "button2"%>
+              </td>
+
+            <%elsif category.nombre=="instalaciones deportivas"%>
+              <td>
+                <h3>Instalaciones deportivas</h3>
+                <%=link_to image_tag("instalacionesdeportivas.png", :alt => "Instalaciones deportivas",:width => 40, :height => 40), catalogos_path(:category_id=>7), class: "button2"%>
+              </td>
+
+            <%elsif category.nombre=="excavaciones"%>
+              <td>
+                <h3>Excavaciones</h3>
+                <%=link_to image_tag("excavacion.png", :alt => "Excavaciones",:width => 40, :height => 40), catalogos_path(:category_id=>8), class: "button2"%>
+              </td>
+            <%elsif category.nombre=="ingenieros"%>
+              <td>
+                <h3>Ingenieros</h3>
+                <%=link_to image_tag("arquitecto.png", :alt => "Ingeniero",:width => 40, :height => 40), catalogos_path(:category_id=>9), class: "button2"%>
+              </td>
+
+            <%end%>
+          </tr>
+        <%end%>
+  
+    </table>
+  </div>
+</div>
+
+<div class="col-lg-5 col-m-7 text right">
+ <h3 style="text-align: center;">Remodelaciones</h3>
+  <div class ="form-control">
+      <table>
+        <% @remodelacion.each do |category| %>
+        <tr>
+          <%if category.nombre=="aire acondicionado"%>
+          <td>
+            <h3>Aire acondicionado</h3>
+             <%=link_to image_tag("aireacondicionado.png", :alt => "Aire acondicionado",:width => 40, :height => 40), catalogos_path(:category_id=>10),class: "button2"%>
+          </td>
+
+          <%elsif category.nombre=="aislamiento termico"%>
+            <td>
+              <h3>Aislamiento termico</h3>
+                <%=link_to image_tag("aislamientotermico.png", :alt => "Aislamiento termico",:width => 40, :height => 40), catalogos_path(:category_id=>11),class: "button2"%>
+            </td>
+          <%elsif category.nombre=="ascensores"%>
+          <td>
+            <h3>Ascensores</h3>
+            <%=link_to image_tag("ascensores.png", :alt => "ascensores",:width => 40, :height => 40), catalogos_path(:category_id=>12),class: "button2"%>
+          </td>
+          <%elsif category.nombre=="albañil"%>
+          <td>
+            <h3>Albañiles</h3>
+            <%=link_to image_tag("arquitecto.png", :alt => "Albañil",:width => 40, :height => 40), catalogos_path(:category_id=>13),class: "button2"%>
+          </td>
+          <%elsif category.nombre=="calefaccion"%>
+          <td>
+            <h3>Calefaccion</h3>
+            <%=link_to image_tag("calefaccion.png", :alt => "calefaccion",:width => 40, :height => 40), catalogos_path(:category_id=>14),class: "button2"%>
+          </td>
+          <%elsif category.nombre=="carpinteria"%>
+          <td>
+            <h3>Carpinteria</h3>
+            <%=link_to image_tag("arquitecto.png", :alt => "Carpintero",:width => 40, :height => 40), catalogos_path(:category_id=>15),class: "button2"%>
+          </td>
+
+          <%elsif category.nombre=="domotica"%>
+          <td>
+            <h3>Domotica</h3>
+            <%=link_to image_tag("domotica.png", :alt => "Domotica",:width => 40, :height => 40), catalogos_path(:category_id=>16),class: "button2"%>
+          </td>
+          <%elsif category.nombre=="electricistas"%>
+          <td>
+            <h3>Electricistas</h3>
+            <%=link_to image_tag("electricista.png", :alt => "Electricistas",:width => 40, :height => 40), catalogos_path(:category_id=>17),class: "button2"%>
+          </td>
+          <%elsif category.nombre=="gasfiteria"%>
+          <td>
+            <h3>Gasfiteria</h3>
+            <%=link_to image_tag("gasfiteria.png", :alt => "Gasfiteria",:width => 40, :height => 40), catalogos_path(:category_id=>18),class: "button2"%>
+          </td>
+          <%elsif category.nombre=="insonorizacion"%>
+          <td>
+            <h3>Insonorizacion</h3>
+            <%=link_to image_tag("insonorizacion.png", :alt => "Insonorizacion",:width => 40, :height => 40), catalogos_path(:category_id=>19),class: "button2"%>
+          </td>
+          <%elsif category.nombre=="pintores"%>
+          <td>
+            <h3>Pintores</h3>
+            <%=link_to image_tag("pintores.png", :alt => "Pintores",:width => 40, :height => 40), catalogos_path(:category_id=>20),class: "button2"%>
+          </td>
+          <%elsif category.nombre=="pisos"%>
+          <td>
+            <h3>Pisos</h3>
+            <%=link_to image_tag("pisos.png", :alt => "Pisos",:width => 40, :height => 40), catalogos_path(:category_id=>21),class: "button2"%>
+          </td>
+          <%elsif category.nombre=="jardin"%>
+          <td>
+            <h3>Jardineria</h3>
+            <%=link_to image_tag("jardineria.png", :alt => "Jardineria",:width => 40, :height => 40), catalogos_path(:category_id=>22),class: "button2"%>
+          </td>
+          <%elsif category.nombre=="seguridad"%>
+          <td>
+            <h3>Seguridad</h3>
+            <%=link_to image_tag("seguridad.png", :alt => "Seguridad",:width => 40, :height => 40), catalogos_path(:category_id=>23),class: "button2"%>
+          </td>
+          <%elsif category.nombre=="techos"%>
+          <td>
+            <h3>Techos</h3>
+            <%=link_to image_tag("techos.png", :alt => "Techos",:width => 40, :height => 40), catalogos_path(:category_id=>24),class: "button2"%>
+          </td>
+
+          <%elsif category.nombre=="toldos"%>
+          <td>
+            <h3>Toldos</h3>
+            <%=link_to image_tag("toldos.png", :alt => "Toldos",:width => 40, :height => 40), catalogos_path(:category_id=>25),class: "button2"%>
+          </td>
+
+          <%elsif category.nombre=="yeseros"%>
+          <td>
+            <h3>Yeseros</h3>
+            <%=link_to image_tag("yesero.png", :alt => "Yeseros",:width => 40, :height => 40), catalogos_path(:category_id=>26),class: "button2"%>
+          </td>
+
+          <%elsif category.nombre=="ventanas"%>
+          <td>
+            <h3>Ventanas</h3>
+            <%=link_to image_tag("ventana.png", :alt => "Ventana",:width => 40, :height => 40), catalogos_path(:category_id=>27),class: "button2"%>
+          </td>
+            
+
+          <%end%>
+        </tr>
+        <%end%>
+      </table>
+    </div>
+</div>
+</div>
+</div>
+<div style="text-align: center;">
+  <%=link_to "Volver",clientes_path ,class: "buttoncute"%>
+</div>
+</div>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Answer cotiza:</strong>
+  <%= @answer.answer_cotiza %>
+</p>
+
+<p>
+  <strong>Accept date:</strong>
+  <%= @answer.accept_date %>
+</p>
+
+<%= link_to 'Edit', edit_answer_path(@answer) %> |
+<%= link_to 'Back', answers_path %>

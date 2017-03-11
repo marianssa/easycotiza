@@ -1,0 +1,5 @@
+class Addcolumnnota < ActiveRecord::Migration[5.0]
+  def change
+  	add_column :calificacions, :nota, :integer
+  end
+end

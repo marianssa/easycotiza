@@ -1,0 +1,5 @@
+current directory: /home/jhopsan/Escritorio/Proyecto2.0/vendor/bundle/ruby/2.3.0/gems/nokogiri-1.7.0.1/ext/nokogiri
+/usr/bin/ruby2.3 -r ./siteconf20170220-24203-p2dcf0.rb extconf.rb --use-system-libraries
+mkmf.rb can't find header files for ruby at /usr/lib/ruby/include/ruby.h
+
+extconf failed, exit code 1

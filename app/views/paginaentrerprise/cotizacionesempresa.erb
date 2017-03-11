@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+<div style="text-align: center;">
+
+<h1>Cotizaciones</h1>
+</div>
+
+<div class ="container">
+<div class="form-control">
+
+<table>
+  <thead>
+    <tr>
+      <th>Area</th>
+      <th>Sector</th>
+      <th>Descripcion</th>
+      <th>Estado</th>
+      <th>Tiempo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% if Cotizacion.exists? enterprise_id: current_enterprise.id%>
+    <% @cotizaciones.each do |cotizacion| %>
+      <tr>
+        <td><%= cotizacion.area %></td>
+        <td><%= cotizacion.sector %></td>
+        <td><%= cotizacion.descripcion %></td>
+        <td><%if cotizacion.estado ==false%>
+            <%="Sin respuestas"%>
+            <%end%>
+        </td>
+        <td><%if cotizacion.tiempo = "soon"%>
+            <%= "Lo antes posible"%>
+            <%elsif cotizacion.tiempo="1a3"%>
+            <%="De 1 a 3 meses" %>
+            <%else%>
+            <%= "Mas de 3 meses"%>
+            <%end%>
+        </td>
+        <td><%=link_to "Responder", new_enterprise_answer_path(@enterprise.id)%></td>
+      </tr>
+    <% end %>
+    <%end%>
+  </tbody>
+</table>
+
+<br>
+</div>
+
+
+<div class="wrapper" style="text-align: center">
+
+
+<%= link_to "  Volver  ", :back, class: "buttoncute" %>
+</div>
+</div>

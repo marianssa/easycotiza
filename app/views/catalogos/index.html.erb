@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+<div style="text-align: center;">
+<h1>Listado de empresas dentro de  <%=@categoria[0]%></h1>
+</div>
+
+<div class="container">
+  <div class="form-control">
+    <table>
+      <tbody>
+        <% @enterprises.each do |enterprise| %>
+          <tr>
+            <td><%= image_tag(enterprise.imagen, :width => 80, :height => 80)%>
+            <br>
+            <h4><u>En easycotiza desde  <%=enterprise.created_at.strftime("%Y:%b")%></u></h4>
+            <br>
+            </td>
+            <td style="text-align: left;">
+              <h3><%=enterprise.nombre%></h3> 
+              <h4><%=enterprise.descripcion%></h4>
+              <h3>Fecha de inicio : <%=enterprise.fecha_de_inicio.strftime("%Y")%></h3>
+      <%=link_to "cotizar",new_client_cotizacion_path(@client.id,:enterprise_id => enterprise.id,)%>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <br>
+  </div>
+  <div style="text-align: center; padding-top: 30px">
+  <%= link_to 'volver', categories_path, class: "buttoncute"%>
+  </div>
+</div>
+
+
+

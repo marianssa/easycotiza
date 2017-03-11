@@ -1,0 +1,15 @@
+
+development: &sandbox # change to your own
+  username: mairajoselaylay-facilitator_api1.gmail.com
+  password: EXHTWWSS8Z84DK3W
+  signature: AFcWxV21C7fd0v3bYYYRCpSSRl31AQieZmbdxtsWYlUNu8BPbulrMzIL
+  sandbox: true
+
+test:
+  <<: *sandbox
+
+production: &production
+  username: SET_YOUR_OWN
+  password: SET_YOUR_OWN
+  signature: SET_YOUR_OWN
+sandbox: false

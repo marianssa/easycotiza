@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Codigo:</strong>
+  <%= @cotizacion.codigo %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @cotizacion.descripcion %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @cotizacion.estado %>
+</p>
+
+<%= link_to 'Edit', edit_client_cotizacion_path(@cotizacion) %> |
+<%= link_to 'Back', client_cotizacions_path %>

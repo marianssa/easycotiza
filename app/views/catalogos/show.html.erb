@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= Catalogo: "#{category.nombre}" %></h1>
+@categories = 
+<div style="text-align: left;">
+	<% @enterprises.each do |empresa| %>
+  		<table>
+   		<th colspan="3"></th>
+    	<tr style="text-align: center;">
+   	    	<td><%=image_tag(empresa.imagen,:width =>100 , :height => 100)%> </td>
+  		 	<h3><%=empresa.nombre%></h3></td>
+        	<td><h4>Descrpcion: <%=empresa.descripcion%></h4></td>
+        	<td><h4>Provincia: <%=empresa.provincia%></h4></td>
+        	<td><h4>Fecha de incorporacion a EasyCotiza: <%=empresa.fecha_de_inicio%></h4></td>
+        </tr>
+  		</table>
+  	<%end%>
+ </div>
+
+
+<%= link_to 'Edit', edit_catalogo_path(@catalogo) %> |
+<%= link_to 'Back', catalogos_path %>

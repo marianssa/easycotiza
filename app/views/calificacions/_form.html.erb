@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="wrapper">
+    <%= form_for @calificacion, :url =>client_calificacions_path do |f| %>
+    <% listanumeros = {0=> 0, 1=> 1, 2=>2, 3=> 3, 4=> 4, 5=> 5, 6=> 6, 7=> 7, 8=> 8, 9=> 9} %>
+      <% if calificacion.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(calificacion.errors.count, "error") %> prohibited this calificacion from being saved:</h2>
+
+          <ul>
+          <% calificacion.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-control">
+
+      <div class="field">
+      <%=f.label :Empresa%>
+      <%= f.select :enterprise_id, Enterprise.all.collect {|f| [ "#{f.nombre}",f.id ] }  %>
+      </div>
+        <div class="field">
+          <%= f.label :Nota %>
+          <p> Ingrese la nota para calificar su respuesta </p>
+          <%= f.select :nota, listanumeros %>
+          
+        </div>
+        <div class="field">
+          <%= f.label :Cliente %>
+          <p><%=current_client.email%> ingrese su comentario en la siguiente sección</p>
+        </div>
+        <div class="field">
+          <%=f.label :Comentario %>
+          <%= f.text_field :comentario, size: "400x200" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
+  </div>
+</div>

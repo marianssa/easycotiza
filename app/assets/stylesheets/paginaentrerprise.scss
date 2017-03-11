@@ -1,0 +1,21 @@
+// Place all the styles related to the paginaentrerprise controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+}
+
+td{
+ text-align:left;
+ vertical-align:middle;
+ padding: 15px;
+}
+table {
+    border-spacing: 5px;
+    border-collapse: collapse;
+}

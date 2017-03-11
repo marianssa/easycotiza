@@ -1,0 +1,44 @@
+<%= form_for([@enterprise,@answer]) do |f| %>
+  <% if answer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(answer.errors.count, "error") %> prohibited this answer from being saved:</h2>
+
+      <ul>
+      <% answer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :answer_cotiza, "Respuesta a cotizacion " %>
+    <%= f.text_area :answer_cotiza, cols: 50, rows: 20 %>
+  </div>
+  <div class="field">
+    <%= f.label :Fecha, "Aceptacion de Fecha" %>
+      <ul>
+      <li><%= f.label :Fecha, "Aceptar", :value => "aceptar"%> </li>
+        <li><%= f.radio_button :accept_date, "aceptar"%></li>
+        <li><%= f.label :Fecha, "Rechazar", :value => "rechazar" %></li>
+        <li><%= f.radio_button :accept_date, "rechazar" %></li>
+      </ul>
+  </div>
+  <div class="field" id="fecha" >
+    <% f.label :fecha %>
+    <%= f.text_field :fecha %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<script type="text/javascript">
+$("#fecha").hide();
+$("input[name=age]").click(function() 
+    {
+        if ( $("#age1").attr('checked'))
+            $("#agetext").hide();
+        else
+            $("#agetext").show();
+    });
+
+<% end %>

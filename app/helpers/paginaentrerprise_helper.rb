@@ -1,0 +1,2 @@
+module PaginaentrerpriseHelper
+end

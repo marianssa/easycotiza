@@ -1,0 +1,30 @@
+<%= form_for(category) do |f| %>
+  <% if category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+      <% category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :Area %>
+      <ul>
+      <li><%= f.label :Area, "Construccion", :value => "construccion"%></li>
+        <li><%= f.radio_button :area, "construccion"%></li>
+        <li><%= f.label :Area, "Remodelacion", :value => "remodelacion" %></li>
+        <li><%= f.radio_button :area, "remodelacion" %></li>
+      </ul>
+  </div>
+  <div class="field">
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre, placeholder: "Nombre de Categoria" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Guardar", class:"btn be-red white" %>
+  </div>
+<% end %>

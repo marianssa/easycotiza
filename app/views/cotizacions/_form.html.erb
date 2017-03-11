@@ -1,0 +1,153 @@
+ <%region= {"Región Metropolitana - Melipilla" => "melipilla",
+ "Región Metropolitana - Chacabuco" => 'chacabuco',
+ 'Región Metropolitana - Maipo'=>'maipo',
+ 'Región Metropolitana - Cordillera'=>'cordillera',
+ 'Región Metropolitana - Talagante'=>'talagante',
+ 'Región Metropolitana - Santiago'=>'santiago',
+ 'Región I Tarapacá - Iquique'=>'iquique',
+ 'Región I Tarapacá - Tamarugal'=>'tamarugal',
+ 'Región II Antofagasta - El Loa'=>'el-loa',
+ 'Región II Antofagasta - Tocopilla'=>'tocopilla',
+ 'Región II Antofagasta - Antofagasta'=> 'antofagasta',
+ 'Región III Atacama - Copiapó'=>'copiapo',
+ 'Región III Atacama - Chañaral'=>'chanaral',
+ 'Región III Atacama - Huasco'=>'huasco',
+ 'Región IV Coquimbo - Choapa'=>'choapa',
+ 'Región IV Coquimbo - Limarí'=>'limari',
+ 'Región IV Coquimbo - Elqui'=>'elqui',
+ 'Región V Valparaíso - San Felipe de Aconcagua'=>'san-felipe-de-aconcagua',
+ 'Región V Valparaíso - Isla de Pascua'=>'isla-de-pascua',
+ 'Región V Valparaíso - Valparaíso'=>'valparaiso',
+ 'Región V Valparaíso - San Antonio'=>'san-antonio',
+ 'Región V Valparaíso – Marga Marga'=>'marga-marga',
+ 'Región V Valparaíso - Los Andes'=>'los-andes',
+ 'Región V Valparaíso - Quillota'=>'quillota',
+ 'Región V Valparaíso - Petorca'=>'petorca',
+ 'Región VI Libertador B. OHiggins - Cardenal Caro'=>'cardenal-caro',
+ "Región VI Libertador B. O'Higgins - Cachapoal"=>'cachapoal',
+ "Región VI Libertador B. O'Higgins - Colchagua"=>'colchagua',
+ "Región VII Maule - Cauquenes"=>'cauquenes',
+ 'Región VII Maule - Talca'=>'talca',
+ 'Región VII Maule - Linares'=>'linares',
+ 'Región VII Maule - Curicó'=>'curico',
+ 'Región VIII Biobío - Arauco'=>'arauco',
+ 'Región VIII Biobío - Ñuble'=>'nuble',
+ 'Región VIII Biobío - Concepción'=>'concepcion',
+ 'Región VIII Biobío - biobio'=>'bio-bio',
+ 'Región IX La Araucanía - Malleco'=>'malleco',
+ 'Región IX La Araucanía - Cautín'=>'cautin',
+ 'Región X Los Lagos - Llanquihue'=>'llanquihue',
+ 'Región X Los Lagos - Palena'=>'palena',
+ 'Región X Los Lagos - Osorno'=>'osorno',
+ 'Región X Los Lagos - Chiloé'=>'chiloe',
+ 'Región XI Aysen - Aysen'=>'aysen',
+ 'Región XI Aysen - Capitán Prat'=>'capitan-prat',
+ 'Región XI Aysen - General Carrera'=>'general-carrera',
+ 'Región XI Aysen - Coihaique'=>'coihaique',
+ 'Región XII Magallanes - Antártica Chilena'=>'antartica',
+ 'Región XII Magallanes - Última Esperanza'=>'ultima-esperanza',
+ 'Región XII Magallanes - Magallanes'=>'magallanes',
+ 'Región XII Magallanes - Tierra del Fuego'=>'tierra-del-fuego',
+ 'Región XIV Los Ríos - Valdivia'=>'valdivia',
+ 'Región XIV Los Ríos - Ranco'=>'ranco',
+ 'Región XV Arica - Arica'=>'arica',
+ 'Región XV Arica - Parinacota'=>'parinacota'};
+ %>
+
+ 
+ 
+ <div class="top_content">
+ <div style="text-align: center;">
+   <div class="row">
+    <div class="col-lg-5 col-xs-7">
+
+  <div class="wrapper">
+    <%= form_for ([@client,@cotizacion]) do |f| %>
+      <% if @cotizacion.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(cotizacion.errors.count, "error") %> prohibited this cotizacion from being saved:</h2>
+
+          <ul>
+            <% cotizacion.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="form-control">
+       <!---De un controlador diferente a vista <3 verifica primero que no exista un profesional asociado -->
+      <%if @cotizacion.enterprise_id%>
+        <%category_id =Enterprise.where(id: @cotizacion.enterprise_id).pluck(:category_id)%>
+       <%=f.hidden_field :enterprise_id,value:@cotizacion.enterprise_id%>
+       <%=f.hidden_field :category_id, value: category_id[0]%>
+       <%else%>
+      <div class= "field">
+      <%=f.label :Categoria%>
+      <%= f.select :category_id, Category.all.collect {|f| [ "#{f.nombre}",f.id ] }  %>
+      </div>
+      <%end%>
+      <div class="field">
+
+       <%= f.label :Area %>
+        <div class="form-control">
+       <ul>
+        <li><%= f.label :Area, "Rural", :value => "rural"%></li>
+        <li><%= f.radio_button :area, "rural"%></li>
+        <li><%= f.label :Area, "Urbano", :value => "urbano" %></li>
+        <li><%= f.radio_button :area, "urbano" %></li>
+        </ul>
+      
+      </div>
+      </div>
+      <div class="field">
+      
+        <%= f.label :Sector %>
+        <div class ="form-control">
+        <ul>
+          <li><%= f.label :Sector, "Publico", :value => "publico"%></li>
+          <li><%= f.radio_button :sector, "publico"%></li>
+          <li><%= f.label :Sector, "Privado", :value => "privado" %></li>
+          <li><%= f.radio_button :sector, "privado" %></li>
+        </ul>
+      </div>
+      </div>
+      <div class="field">
+        <%= f.label :"Que_necesitas?" %>
+        <%= f.text_field :descripcion, size: "80x200" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :"Tiempo"%>
+         <div class="form-control">
+        <ul>
+       <li><%= f.label :tiempo , "Lo antes posible", :value => "soon"%></li>
+        <li><%= f.radio_button :tiempo, "soon"%></li>
+        <li><%= f.label :tiempo , "De 1 a 3 meses", :value => "1a3" %></li>
+        <li><%= f.radio_button :tiempo, "1a3" %></li>
+        <li><%= f.label :tiempo , "Mas de 3 meses", :value => "mas" %></li>
+        <li><%= f.radio_button :tiempo, "mas" %></li>
+        </ul>
+      </div>
+      </div>
+      <div class="field">
+        <%=f.label :Provincia%><br/>
+        <%=f.select :provincia,region%>
+
+      </div>
+      </div>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
+  </div>
+  </div>
+  <div class="col-lg-6 col-m-7">
+        <div class="top_left_cont flipInY wow animated">
+            <%= image_tag "win.png", :alt => "", :title => ""%>
+        </div>
+      </div>
+  </div>
+  </div>
+  </div>
+</div>

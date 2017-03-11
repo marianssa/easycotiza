@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+<div style="text-align: center;">
+
+<h1>Cotizaciones</h1>
+</div>
+
+<div class="form-control">
+
+<table>
+  <thead>
+    <tr>
+      <th>Area</th>
+      <th>Sector</th>
+      <th>Descripcion</th>
+      <th>Estado</th>
+      <th>Tiempo</th>
+      <th>Empresa</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cotizacions.each do |cotizacion| %>
+      <tr>
+        <td><%= cotizacion.area %></td>
+        <td><%= cotizacion.sector %></td>
+        <td><%= cotizacion.descripcion %></td>
+        <td><%= cotizacion.estado %></td>
+        <td><%if cotizacion.tiempo = "soon"%>
+            <%= "Lo antes posible"%>
+            <%elsif cotizacion.tiempo="1a3"%>
+            <%="De 1 a 3 meses" %>
+            <%else%>
+            <%= "Mas de 3 meses"%>
+            <%end%>
+        </td>
+        <td><%=cotizacion.enterprise_id%></td>
+        <td><%= link_to 'Edit', edit_client_cotizacion_path(@client,cotizacion) %></td>
+        <td><%= link_to 'Destroy',client_cotizacion_path(@client,cotizacion),method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+</div>
+
+
+<div class="wrapper" style="text-align: center">
+<%= link_to 'New Cotizacion', new_client_cotizacion_path(current_client.id), class: "buttoncute" %>
+
+<%= link_to "  Volver  ", :back, class: "buttoncute" %>
+</div>

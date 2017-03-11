@@ -1,0 +1,117 @@
+<h2> Registro clientes </h2>
+<div class="container">
+<div class="wrapper">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<% regiones ={"Región Metropolitana - Melipilla" => "melipilla",
+ "Región Metropolitana - Chacabuco" => 'chacabuco',
+ 'Región Metropolitana - Maipo'=>'maipo',
+ 'Región Metropolitana - Cordillera'=>'cordillera',
+ 'Región Metropolitana - Talagante'=>'talagante',
+ 'Región Metropolitana - Santiago'=>'santiago',
+ 'Región I Tarapacá - Iquique'=>'iquique',
+ 'Región I Tarapacá - Tamarugal'=>'tamarugal',
+ 'Región II Antofagasta - El Loa'=>'el-loa',
+ 'Región II Antofagasta - Tocopilla'=>'tocopilla',
+ 'Región II Antofagasta - Antofagasta'=> 'antofagasta',
+ 'Región III Atacama - Copiapó'=>'copiapo',
+ 'Región III Atacama - Chañaral'=>'chanaral',
+ 'Región III Atacama - Huasco'=>'huasco',
+ 'Región IV Coquimbo - Choapa'=>'choapa',
+ 'Región IV Coquimbo - Limarí'=>'limari',
+ 'Región IV Coquimbo - Elqui'=>'elqui',
+ 'Región V Valparaíso - San Felipe de Aconcagua'=>'san-felipe-de-aconcagua',
+ 'Región V Valparaíso - Isla de Pascua'=>'isla-de-pascua',
+ 'Región V Valparaíso - Valparaíso'=>'valparaiso',
+ 'Región V Valparaíso - San Antonio'=>'san-antonio',
+ 'Región V Valparaíso – Marga Marga'=>'marga-marga',
+ 'Región V Valparaíso - Los Andes'=>'los-andes',
+ 'Región V Valparaíso - Quillota'=>'quillota',
+ 'Región V Valparaíso - Petorca'=>'petorca',
+ 'Región VI Libertador B. OHiggins - Cardenal Caro'=>'cardenal-caro',
+ "Región VI Libertador B. O'Higgins - Cachapoal"=>'cachapoal',
+ "Región VI Libertador B. O'Higgins - Colchagua"=>'colchagua',
+ "Región VII Maule - Cauquenes"=>'cauquenes',
+ 'Región VII Maule - Talca'=>'talca',
+ 'Región VII Maule - Linares'=>'linares',
+ 'Región VII Maule - Curicó'=>'curico',
+ 'Región VIII Biobío - Arauco'=>'arauco',
+ 'Región VIII Biobío - Ñuble'=>'nuble',
+ 'Región VIII Biobío - Concepción'=>'concepcion',
+ 'Región VIII Biobío - biobio'=>'bio-bio',
+ 'Región IX La Araucanía - Malleco'=>'malleco',
+ 'Región IX La Araucanía - Cautín'=>'cautin',
+ 'Región X Los Lagos - Llanquihue'=>'llanquihue',
+ 'Región X Los Lagos - Palena'=>'palena',
+ 'Región X Los Lagos - Osorno'=>'osorno',
+ 'Región X Los Lagos - Chiloé'=>'chiloe',
+ 'Región XI Aysen - Aysen'=>'aysen',
+ 'Región XI Aysen - Capitán Prat'=>'capitan-prat',
+ 'Región XI Aysen - General Carrera'=>'general-carrera',
+ 'Región XI Aysen - Coihaique'=>'coihaique',
+ 'Región XII Magallanes - Antártica Chilena'=>'antartica',
+ 'Región XII Magallanes - Última Esperanza'=>'ultima-esperanza',
+ 'Región XII Magallanes - Magallanes'=>'magallanes',
+ 'Región XII Magallanes - Tierra del Fuego'=>'tierra-del-fuego',
+ 'Región XIV Los Ríos - Valdivia'=>'valdivia',
+ 'Región XIV Los Ríos - Ranco'=>'ranco',
+ 'Región XV Arica - Arica'=>'arica',
+ 'Región XV Arica - Parinacota'=>'parinacota'} %>
+ <div class ="form-control">
+  <%= devise_error_messages! %>
+
+    <div class="field">
+      <%= f.label :rut, "Rut" %><br/ >
+      <%=f.text_field :rut,autofocus:true%>
+    </div>
+
+    <div class="field">
+      <%= f.label :nombre, "Nombre" %><br/ >
+      <%=f.text_field :nombre%>
+    </div>
+
+    <div class="field">
+      <%= f.label :telefono, "telefono" %><br/ >
+      <%=f.text_field :telefono%>
+    </div>
+    <div class="field">
+      <%=f.label :Provincia%><br/>
+      <%=f.select :provincia,regiones %>
+
+    </div>
+    <div>
+        <%= f.label :fecha_de_nacimiento%><br />
+        <%= f.date_select :date_of_birth, :order => [:day, :month, :year],:use_month_names => [t(:en), t(:feb), t(:mar), t(:apr), t(:may), t(:jun), t(:jul), t(:aug), t(:sep), t(:oct), t(:nov), t(:dec)],:start_year => 1900, :end_year => Time.now.year - 18 %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email %>
+    </div>
+
+    <div class="field">
+      <%= f.label :contraseña %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> caracteres como minimo)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :confirmar_constraseña %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Sign up" %>
+    </div>
+
+<% end %>
+<%= render "clients/shared/links" %>
+</div>
+</div>
+</div>
+<div class ="wrapper" style="text-align: center">
+
+<%= link_to "  Volver  ", :back, class: "buttoncute" %>
+</div>
+
