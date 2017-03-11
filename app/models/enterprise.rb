@@ -4,6 +4,7 @@ class Enterprise < ApplicationRecord
   has_many :calificacions
   belongs_to :category
   has_many :answers
+  has_many :payments
   has_many :cotizacions
   attr_accessor :imagen, :imagen_cache, :remove_imagen
   devise :database_authenticatable, :registerable,

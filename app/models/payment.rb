@@ -1,4 +1,5 @@
 class Payment < ApplicationRecord
+  belongs_to :enterprises
 validates :token, uniqueness: true
   validates :amount, presence: true
   validates :identifier, uniqueness: true

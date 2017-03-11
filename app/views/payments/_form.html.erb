@@ -4,4 +4,22 @@
   <%= f.hidden_field :recurring %>
   <%= f.hidden_field :popup %>
   <%= f.submit 'Pay' %>
+
+  <div class="form-control">
+  	<h2> Proceso de verificación pago </h2>
+  	<h4> Conjunte imagen de pago </h4>
+  	<div class="field">
+    	<%= f.label :imagen, "Imagen"%>
+    	<%=  f.label :imagen do %>
+    		<%= f.file_field :imagen %>
+    		<%= f.hidden_field :imagen_cache%>
+    	<%end%>
+    </div>
+    <div class="field">
+    	<%= f.label :identifier, "Ingrese número de tarjeta" %>
+    	<%= f.text_field :identifier %>
+    </div>
+
+  </div>
+
 <% end %>
