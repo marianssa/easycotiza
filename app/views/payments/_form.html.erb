@@ -10,7 +10,7 @@
   	<h4> Conjunte imagen de pago </h4>
   	<div class="field">
     	<%= f.label :imagen, "Imagen"%>
-    	<%=  f.label :imagen do %>
+    	<%= f.label :imagen do %>
     		<%= f.file_field :imagen %>
     		<%= f.hidden_field :imagen_cache%>
     	<%end%>
@@ -20,6 +20,17 @@
     	<%= f.text_field :identifier %>
     </div>
 
+  </div>
+
+
+  <div class="form-control">
+  	<h2> Si aún no realiza su transacción </h2>
+  	<h2> dirijase a una de las siguientes opciones </h2>
+  	<div class="field">
+  		<a title="Banco Estado" href="https://www.bancoestado.cl/imagenes/comun2008/nuevo_paglg_pers2.html">
+  			<img width="50" height="60" src="bancoestado.png"></img>
+  		</a>
+  	</div>
   </div>
 
 <% end %>
