@@ -55,11 +55,10 @@
  %>
 
  
- 
  <div class="top_content">
  <div style="text-align: center;">
    <div class="row">
-    <div class="col-lg-5 col-xs-7">
+    <div class="col-lg-5 col-xs-7 wow fadeInUp delay-06s">
 
   <div class="wrapper">
     <%= form_for ([@client,@cotizacion]) do |f| %>
@@ -86,9 +85,10 @@
       <%= f.select :category_id, Category.all.collect {|f| [ "#{f.nombre}",f.id ] }  %>
       </div>
       <%end%>
+    
       <div class="field">
 
-       <%= f.label :Area %>
+       <%= f.label :Area  %>
         <div class="form-control">
        <ul>
         <li><%= f.label :Area, "Rural", :value => "rural"%></li>
@@ -150,4 +150,3 @@
   </div>
   </div>
   </div>
-</div>

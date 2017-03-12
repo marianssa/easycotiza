@@ -2,11 +2,7 @@ class PaginaentrerpriseController < ApplicationController
 	before_action :authenticate_enterprise!
 	def pagenterprise
 
-	@grouped_payments = [
-      [Payment.new,                 Payment.recurring.build              ],
-      [Payment.digital.build,       Payment.digital.recurring.build      ],
-      [Payment.digital.popup.build, Payment.digital.popup.recurring.build]
-    ]
+	@grouped_payments =Payment.new
     @enterprise =current_enterprise
     @calificacion = Calificacion.all
     @cotizaciones = Cotizacion.all

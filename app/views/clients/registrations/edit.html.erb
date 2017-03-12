@@ -22,21 +22,8 @@
       <em><%= @minimum_password_length %> Caracteres como minimo </em>
     <% end %>
   </div>
-   <div class="field">
-              <% if current_enterprise.imagen.url.present? %>
-                  <% image_tag(current_enterprise.imagen.url) %>
-                  <%= f.label :remover_imagen do %>
-                   
-                    <%= f.file_field :imagen %>
-                    <%= f.hidden_field :imagen_cache %>
-                 <% end %>
-              <%end%>
-</div>
+  
 
-  <div class= "field">
-      <%=f.label :Categoria%>
-      <%= f.select :category_id, Category.all.collect {|f| [ "#{f.nombre}",f.id ] }  %>
-  </div>
   <div class="field">
     <%= f.label :confirmacion%><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>

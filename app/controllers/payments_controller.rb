@@ -28,7 +28,6 @@ class PaymentsController < ApplicationController
 
     respond_to do |format|
       if @payment.save
-        Welcome.notify(@client).deliver
         format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
         format.json { render :show, status: :created, location: @payment }
       else
@@ -70,6 +69,6 @@ class PaymentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def payment_params
-      params.require(:payment).permit(:token, :amount, :identifier, :payer_id, :recurring, :digital, :popup, :completed, :canceled)
+      params.require(:payment).permit( :identifier, :payer_id, :completed, :canceled, :imagen)
     end
 end

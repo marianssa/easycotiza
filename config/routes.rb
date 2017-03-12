@@ -33,13 +33,7 @@ end
   get '/clientes' => 'paginaclients#pageclient'
   get '/profesionales' => 'paginaentrerprise#pagenterprise'
 
-  resources :payments, only: [:show, :create, :destroy] do
-    collection do
-      get :success
-      get :cancel
-      post :notify
-    end
-  end
+  resources :payments
 end
 
 
