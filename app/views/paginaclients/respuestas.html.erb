@@ -1,34 +1,31 @@
 <p id="notice"><%= notice %></p>
 <div style="text-align: center;">
 
-<h1>Respuestas recibidas</h1>
+<h1 style="color:red"><strong>Respuestas recibidas</strong></h1>
 </div>
-
 <div class ="container">
-<div class="form-control">
+<div class="form-control" style="text-align: center;">
 
-<table>
-  <thead>
-    <tr>
-      <th>Area</th>
-      <th>Sector</th>
-      <th>Descripcion</th>
-      <th>Estado</th>
-      <th>Tiempo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
     <% @respuestas.each do |respuesta| %>
-      <tr>
-        <td><%= respuesta.fecha %></td>
-        <td><%= respuesta.answer_cotiza %></td>
-        
-      </tr>
+  <ul>
+      <%@cotizaciones.each do |cotizacion|%>
+        <%if cotizacion.id ==respuesta.cotizacion_id%>
+        <h3>Cotizacion n° <%=cotizacion.id%></h3>
+          
+           <li> <textarea rows="10" cols="90" readonly><%= cotizacion.descripcion %> 
+            </textarea></li>
+      
+        <%end%>
+      <%end%>
+      <h2>--------------------------------------------</h2>
+       <div class="form-control" style="text-align: left">
+
+        <li>Fecha : <%= respuesta.fecha %></li>
+        <li>Respuesta :<%= respuesta.answer_cotiza %></li>
+      </div>
+      
     <% end %>
-  </tbody>
-</table>
 
 <br>
 </div>

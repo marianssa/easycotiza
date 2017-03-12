@@ -35,6 +35,8 @@ end
 
   get '/respuestas_recibidas'=>'paginaclients#respuestas'
 
+  get '/respuesta_aceptada'=>'paginaclients#answer_success'
+
   resources :payments
 end
 

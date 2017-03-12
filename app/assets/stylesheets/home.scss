@@ -16,15 +16,15 @@ img.mediana{
 .buttoncute{
     background-color: white;
     color: black;
-    border: 2px solid #FF00BF; /* Rosado */
+    border: 2px solid #00FF00; /* Rosado */
     padding: 15px 32px;
-    font-size: 15px;
-    border-radius: 15px;
+    font-size: 25px;
+    border-radius: 40px;
 }
-.buttoncute:hover {background-color: #FF0080}
+.buttoncute:hover {background-color: #00FF00}
 
 .buttoncute:active {
-  background-color: #B4045F;
+  background-color: #81F781;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }

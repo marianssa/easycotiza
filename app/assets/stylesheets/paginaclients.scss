@@ -16,10 +16,14 @@
   box-shadow: 0 9px #999;
 }
 
-.buttonsombra:hover {background-color: #088A08}
+.buttonsombra:hover {background-color: #088A08;}
 
 .buttonsombra:active {
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+}
+.body { padding-top: 100px;}
+.navbar {
+    margin-bottom: 0;
 }
