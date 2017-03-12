@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170310042737) do
+ActiveRecord::Schema.define(version: 20170311232048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,11 +50,11 @@ ActiveRecord::Schema.define(version: 20170310042737) do
   create_table "answers", force: :cascade do |t|
     t.text     "answer_cotiza"
     t.string   "accept_date"
-    t.string   "fecha"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "enterprise_id"
     t.integer  "cotizacion_id"
+    t.datetime "fecha"
   end
 
   create_table "average_caches", force: :cascade do |t|
@@ -191,6 +191,7 @@ ActiveRecord::Schema.define(version: 20170310042737) do
     t.boolean  "popup"
     t.boolean  "completed"
     t.boolean  "canceled"
+    t.string   "imagen"
   end
 
   create_table "rates", force: :cascade do |t|

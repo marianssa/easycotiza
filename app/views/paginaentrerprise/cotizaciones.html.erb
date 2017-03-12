@@ -37,7 +37,7 @@
             <%= "Mas de 3 meses"%>
             <%end%>
         </td>
-        <td><%=link_to "Responder", new_enterprise_answer_path(@enterprise.id)%></td>
+        <td><%=link_to "Responder", new_enterprise_answer_path(@enterprise.id,:cotizacion => cotizacion.id)%></td>
       </tr>
     <% end %>
   </tbody>

@@ -32,7 +32,7 @@ class AnswersController < ApplicationController
   def create
     @enterprise = current_enterprise
     @answer = @enterprise.answers.new(answer_params)
-   
+    @cotizacionid = params[:cotizacion]
     if @enterprise.save
       flash[:notice]= "A respondido una cotizacion"
       redirect_to enterprise_answers_path(params[:enterprise_id])

@@ -10,6 +10,9 @@
       </ul>
     </div>
   <% end %>
+<div class ="field" id= "cotizacionid">
+  <%= f.text_field :cotizacion_id, value:params[:cotizacion]%>
+</div>
 
   <div class="field">
     <%= f.label :answer_cotiza, "Respuesta a cotizacion " %>
@@ -18,27 +21,31 @@
   <div class="field">
     <%= f.label :Fecha, "Aceptacion de Fecha" %>
       <ul>
-      <li><%= f.label :Fecha, "Aceptar", :value => "aceptar"%> </li>
-        <li><%= f.radio_button :accept_date, "aceptar"%></li>
-        <li><%= f.label :Fecha, "Rechazar", :value => "rechazar" %></li>
-        <li><%= f.radio_button :accept_date, "rechazar" %></li>
+      <li><%= f.radio_button(:accept_date, "aceptar") %>
+          <%= f.label(:accept_date, "Aceptar") %></li>
+      <li>
+          <%= f.radio_button(:accept_date, "rechazar") %>
+          <%= f.label(:accept_date, "Rechazar") %></li>
       </ul>
   </div>
-  <div class="field" id="fecha" >
+  <div class="field" id="fecha">
     <% f.label :fecha %>
     <%= f.text_field :fecha %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
-<script type="text/javascript">
-$("#fecha").hide();
-$("input[name=age]").click(function() 
-    {
-        if ( $("#age1").attr('checked'))
-            $("#agetext").hide();
-        else
-            $("#agetext").show();
-    });
-
 <% end %>
+
+<script type="text/javascript">
+$("#cotizacionid").hide();
+$("#fecha").hide();
+$('input[name="answer[accept_date]"]').change(function() {
+    var selected = $('input:checked[name="answer[accept_date]"]').val()
+    if ( selected == "rechazar")
+        $('#fecha').show();
+    else
+        $('#fecha').hide();
+});
+</script>
+

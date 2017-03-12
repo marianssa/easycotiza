@@ -16,9 +16,10 @@
       <tr>
         <td><%= answer.answer_cotiza %></td>
         <td><%= answer.accept_date %></td>
-        <td><%= link_to 'Show', answer %></td>
-        <td><%= link_to 'Edit', edit_enterprise_answer_path(answer) %></td>
-        <td><%= link_to 'Destroy', answer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=answer.cotizacion_id%></td>
+        <td><%= link_to 'Show', enterprise_answers_path %></td>
+        <td><%= link_to 'Edit', edit_enterprise_answer_path(@enterprise,answer) %></td>
+        <td><%= link_to 'Destroy',enterprise_answer_path(@enterprise,answer),method: :delete, data: { confirm: 'Esta seguro?' }  %></td>
       </tr>
     <% end %>
   </tbody>
