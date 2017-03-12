@@ -1,29 +1,23 @@
 <%= form_for payment do |f| %>
 
-  <div class="form-control">
-  	<h2> Proceso de verificación pago </h2>
-  	<h4> Conjunte imagen de pago </h4>
-  	<div class="field">
-    	<%= f.label :imagen, "Imagen"%>
-    	<%= f.label :imagen do %>
-    		<%= f.file_field :imagen %>
-    		<%= f.hidden_field :imagen_cache%>
-    	<%end%>
-    </div>
-    <div class="field">
-    	<%= f.label :identifier, "Ingrese número de tarjeta" %>
-    	<%= f.text_field :identifier %>
-    </div>
-
-  </div>
 
 
   <div class="form-control">
   	<h2> Si aún no realiza su transacción </h2>
   	<h2> dirijase a una de las siguientes opciones </h2>
   	<div class="field">
-    <%= link_to image_tag("bancoestado.png",:width => 60, :height => 60),"https://www.bancoestado.cl/imagenes/comun2008/nuevo_paglg_pers2.html" %>
-  		
+  	<h4> Metodos de pago </h4>
+  	<h5> Cuenta Rut/ Master Card Nacional </h5>
+    <%= link_to image_tag("bancoestado.png",:width => 100, :height => 100),"https://www.bancoestado.cl/imagenes/comun2008/nuevo_paglg_pers2.html" %>
+  	</div>
+  	<div class="field">
+  	<h4> Redcompra </h4>
+    <%= link_to image_tag("redcompra.png",:width => 100, :height => 100),"https://www.transbank.cl/public/" %>
+  	</div>
+  	</div>
+  	<div class="field">
+  	<h4> Visa </h4>
+    <%= link_to image_tag("visa.png",:width => 100, :height => 100),"https://www.visa.cl/pague-con-visa/visa-checkout.html#2" %>
   	</div>
   </div>
 

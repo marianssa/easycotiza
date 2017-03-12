@@ -1,11 +1,19 @@
-<article>
-  <h1>
-    <%=t @payment.payment_type %> Payment for <%=t @payment.goods_type %> Goods
-    <% if @payment.recurring? %>
-      <span class="unsubscribe">
-        (<%= link_to t('unsubscribe'), payment_path(@payment.identifier), method: :delete %>)
-      </span>
-    <% end %>
-  </h1>
-  <pre><%= JSON.pretty_generate JSON.parse(@payment.details.to_json) %></pre>
-</article>
+  <div class="form-control">
+    <h2> Darse de alta </h2>
+    <h2></h2>
+  	<h4> Proceso de verificación pago </h4>
+    <h4></h4>
+  	<h5> Conjunte imagen de pago </h5>
+  	<div class="field">
+    	<%= f.label :imagen, "Imagen"%>
+    	<%= f.label :imagen do %>
+    		<%= f.file_field :imagen %>
+    		<%= f.hidden_field :imagen_cache%>
+    	<%end%>
+    </div>
+    <div class="field">
+    	<%= f.label :identifier, "Ingrese número de tarjeta" %>
+    	<%= f.text_field :identifier %>
+    </div>
+
+  </div>
