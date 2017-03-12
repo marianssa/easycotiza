@@ -19,6 +19,13 @@ validates :token, uniqueness: true
   where(:popup => true)
 }
  
+  def tiempos
+    if Time.now > @tiempo_termino 
+      @tiempo_termino= 0
+      @canceled = false
+    end
+  end
+
 
   def goods_type
     digital? ? :digital : :real
