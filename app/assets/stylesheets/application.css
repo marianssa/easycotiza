@@ -35,7 +35,14 @@ body { padding-top: 0px;
     border: 4px solid white; /* Rosado */
     padding: 15px 32px;
 }
-
+.button3{
+    background-color: #FA8258;
+    color: black;
+    border: 4px solid white; /* Rosado */
+    padding: 15px 20px;
+    border-radius: 30px;
+    font-size: 15px;
+}
 .button2{
     background-color: white;
     color: black;

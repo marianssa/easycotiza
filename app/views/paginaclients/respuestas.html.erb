@@ -6,27 +6,30 @@
 <div class ="container">
 <div class="form-control" style="text-align: center;">
 
-
-    <% @respuestas.each do |respuesta| %>
-  <ul>
-      <%@cotizaciones.each do |cotizacion|%>
-        <%if cotizacion.id ==respuesta.cotizacion_id%>
-        <h3>Cotizacion n° <%=cotizacion.id%></h3>
+<ul>
+    <% @cotizaciones.each do |cotizacion| %>
+     <h3> <i class="fa fa-bookmark-o" aria-hidden="true" style="font-size: 20px;color:red"></i> Cotizacion n° <%=cotizacion.id%></h3>
           
-           <li> <textarea rows="10" cols="90" readonly><%= cotizacion.descripcion %> 
-            </textarea></li>
+           <li>
+<textarea rows="10" cols="90" readonly><%= cotizacion.descripcion %> 
+</textarea></li>
+<br>
+    <%cotizacion.answers.each do|respuesta|%>
+  
       
-        <%end%>
-      <%end%>
-      <h2>--------------------------------------------</h2>
        <div class="form-control" style="text-align: left">
+       <p style="text-align: right;"><%=link_to "Aceptar",respuesta_aceptada_path, class: "button3"%></p>
 
-        <li>Fecha : <%= respuesta.fecha %></li>
-        <li>Respuesta :<%= respuesta.answer_cotiza %></li>
+        <li><% empresa= Enterprise.where(id: respuesta.enterprise_id).pluck( :nombre)%>
+        <p><i class="fa fa-user" aria-hidden="true" style="font-size: 20px"></i><u><%=empresa[0]%></u> :</p>
+        </li>
+        <li>Fecha a realizar el proyecto : <%= respuesta.fecha %></li>
+        <li><%= respuesta.answer_cotiza %></li>
       </div>
       
     <% end %>
-
+    <%end%>
+</ul>
 <br>
 </div>
 

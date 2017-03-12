@@ -3,6 +3,27 @@
 
 
   <div class="form-control">
+
+    <h2> Darse de alta </h2>
+    <h2></h2>
+    <h4> Proceso de verificación pago </h4>
+    <h4></h4>
+    <h5> Conjunte imagen de pago </h5>
+    <div class="field">
+      <%= f.label :imagen, "Imagen"%>
+      <%= f.label :imagen do %>
+        <%= f.file_field :imagen %>
+        <%= f.hidden_field :imagen_cache%>
+      <%end%>
+    </div>
+    <div class="field">
+      <%= f.label :identifier, "Ingrese número de tarjeta" %>
+      <%= f.text_field :identifier %>
+    </div>
+    <div class="actions">
+        <%= f.submit %>
+      </div>
+<% end %>
   	<h2> Si aún no realiza su transacción </h2>
   	<h2> dirijase a una de las siguientes opciones </h2>
   	<div class="field">
@@ -21,4 +42,3 @@
   	</div>
   </div>
 
-<% end %>

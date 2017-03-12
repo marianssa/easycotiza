@@ -2,7 +2,7 @@
 <div style="text-align: center;">
 <h1>Respuestas</h1>
 </div>
-<div class="container">
+<div class="container-fluid">
 <div class ="form-control" overflow:auto>
 <div style="text-align: center;">
 <table>
@@ -20,7 +20,7 @@
         <td ><textarea rows="3" cols="50" readonly><%= answer.answer_cotiza %> </textarea></td>
         <td><%=answer.fecha.strftime("%d  %b  %Y")%></td>
         <td><%=answer.cotizacion_id%></td>
-        <td><%= link_to 'Ver', enterprise_answers_path %></td>
+        <td><%= link_to 'Ver', enterprise_answer_path(@enterprise,answer) %></td>
         <td><%= link_to 'Editar', edit_enterprise_answer_path(@enterprise,answer) %></td>
         <td><%= link_to 'Eliminar',enterprise_answer_path(@enterprise,answer),method: :delete, data: { confirm: 'Esta seguro?' }  %></td>
       </tr>
@@ -30,5 +30,12 @@
 
 <br>
 </div>
+
 </div>
 </div>
+<div class="wrapper" style="text-align: center">
+
+<%= link_to "Volver", profesionales_path, class: "buttoncute"%>
+
+</div>
+

@@ -5,14 +5,14 @@ class AnswersController < ApplicationController
   # GET /answers.json
   def index
     @enterprise =current_enterprise
-    @answers = Answer.all
+    @answers = Answer.where(enterprise_id: @enterprise.id)
   end
 
   # GET /answers/1
   # GET /answers/1.json
   def show
     @enterprise = current_enterprise
-    @answer = Answer.find(params[:enterprise_id])
+    @answer = Answer.find(params[:id])
   end
 
   # GET /answers/new
