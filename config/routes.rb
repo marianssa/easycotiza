@@ -33,6 +33,8 @@ end
   get '/clientes' => 'paginaclients#pageclient'
   get '/profesionales' => 'paginaentrerprise#pagenterprise'
 
+  get '/respuestas_recibidas'=>'paginaclients#respuestas'
+
   resources :payments
 end
 

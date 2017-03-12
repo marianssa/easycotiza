@@ -1,29 +1,34 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Answers</h1>
-
+<div style="text-align: center;">
+<h1>Respuestas</h1>
+</div>
+<div class="container">
+<div class ="form-control" overflow:auto>
+<div style="text-align: center;">
 <table>
   <thead>
     <tr>
-      <th>Answer cotiza</th>
-      <th>Accept date</th>
-      <th colspan="3"></th>
+      <th>Respuesta</th>
+      <th>Fecha propuesta</th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @answers.each do |answer| %>
       <tr>
-        <td><%= answer.answer_cotiza %></td>
-        <td><%= answer.accept_date %></td>
+        <td ><textarea rows="3" cols="50" readonly><%= answer.answer_cotiza %> </textarea></td>
+        <td><%=answer.fecha.strftime("%d  %b  %Y")%></td>
         <td><%=answer.cotizacion_id%></td>
-        <td><%= link_to 'Show', enterprise_answers_path %></td>
-        <td><%= link_to 'Edit', edit_enterprise_answer_path(@enterprise,answer) %></td>
-        <td><%= link_to 'Destroy',enterprise_answer_path(@enterprise,answer),method: :delete, data: { confirm: 'Esta seguro?' }  %></td>
+        <td><%= link_to 'Ver', enterprise_answers_path %></td>
+        <td><%= link_to 'Editar', edit_enterprise_answer_path(@enterprise,answer) %></td>
+        <td><%= link_to 'Eliminar',enterprise_answer_path(@enterprise,answer),method: :delete, data: { confirm: 'Esta seguro?' }  %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+</div>
+</div>
+</div>

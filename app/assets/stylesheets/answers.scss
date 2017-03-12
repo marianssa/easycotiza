@@ -2,3 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
+   .generic-content-70 {
+    overflow: auto;
+}
+    
+
+textarea {
+    resize: none;
+}
+
+table {
+    border-spacing: 5px;
+    border-collapse: collapse;
+}
+
+td{
+ text-align:center;
+ vertical-align:middle;
+ padding: 15px;
+}

@@ -17,8 +17,10 @@ class AnswersController < ApplicationController
 
   # GET /answers/new
   def new
+
     @enterprise = current_enterprise
     @answer = @enterprise.answers.new
+    @maximum_length = Answer.validators_on( :answer_cotiza).first.options[:maximum]
   end
 
   # GET /answers/1/edit
