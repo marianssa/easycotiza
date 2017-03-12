@@ -1,6 +1,7 @@
+<%meses={1=>1, 2=>2, 3=> 3, 4=> 4, 5=> 5, 6=> 6, 7=> 7, 8=> 8, 9=> 9, 10=>10, 11=>11, 12=>12}%>
+<div class="container">
+<div class="wrapper">
 <%= form_for payment do |f| %>
-
-
 
   <div class="form-control">
 
@@ -9,6 +10,15 @@
     <h4> Proceso de verificación pago </h4>
     <h4></h4>
     <h5> Conjunte imagen de pago </h5>
+    
+    <div class="field">
+      <%= f.label :identifier, "Ingrese número de tarjeta" %>
+      <%= f.text_field :identifier %>
+    </div>
+    <div class="field">
+      <%= f.label :cantmeses, "Ingrese la cantidad de meses pagados" %>
+      <%= f.select :cantmeses, meses %>
+    </div>
     <div class="field">
       <%= f.label :imagen, "Imagen"%>
       <%= f.label :imagen do %>
@@ -16,29 +26,30 @@
         <%= f.hidden_field :imagen_cache%>
       <%end%>
     </div>
-    <div class="field">
-      <%= f.label :identifier, "Ingrese número de tarjeta" %>
-      <%= f.text_field :identifier %>
-    </div>
+
     <div class="actions">
         <%= f.submit %>
       </div>
 <% end %>
   	<h2> Si aún no realiza su transacción </h2>
   	<h2> dirijase a una de las siguientes opciones </h2>
+    <div class="field">
+      <h3> El valor por mes de membresia es de $40.000 </h3>
+    </div>
   	<div class="field">
-  	<h4> Metodos de pago </h4>
-  	<h5> Cuenta Rut/ Master Card Nacional </h5>
-    <%= link_to image_tag("bancoestado.png",:width => 100, :height => 100),"https://www.bancoestado.cl/imagenes/comun2008/nuevo_paglg_pers2.html" %>
+  	  <h4> Metodos de pago </h4>
+  	  <h5> Cuenta Rut/ Master Card Nacional </h5>
+      <%= link_to image_tag("bancoestado.png",:width => 100, :height => 100),"https://www.bancoestado.cl/imagenes/comun2008/nuevo_paglg_pers2.html" %>
   	</div>
   	<div class="field">
-  	<h4> Redcompra </h4>
-    <%= link_to image_tag("redcompra.png",:width => 100, :height => 100),"https://www.transbank.cl/public/" %>
+  	  <h4> Redcompra </h4>
+      <%= link_to image_tag("redcompra.png",:width => 100, :height => 100),"https://www.transbank.cl/public/" %>
   	</div>
   	</div>
   	<div class="field">
-  	<h4> Visa </h4>
-    <%= link_to image_tag("visa.png",:width => 100, :height => 100),"https://www.visa.cl/pague-con-visa/visa-checkout.html#2" %>
+  	  <h4> Visa </h4>
+      <%= link_to image_tag("visa.png",:width => 100, :height => 100),"https://www.visa.cl/pague-con-visa/visa-checkout.html#2" %>
   	</div>
   </div>
-
+</div>
+</div>

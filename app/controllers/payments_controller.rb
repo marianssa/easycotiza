@@ -31,11 +31,9 @@ class PaymentsController < ApplicationController
         format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
         format.json { render :show, status: :created, location: @payment }
         if @tiempo_termino == 0
-          @payment.tiempo_termino = @payment.created_at + 61
-          @payment.canceled = true
+          @payment.tiempo_termino = @payment.created_at + (61*@payment.cantmeses)
         else
-          @payment.tiempo_termino = @payment.created_at + 61 + @payment.tiempo_termino
-          @payment.canceled = true
+          @payment.tiempo_termino = @payment.created_at + (61*@payment.cantmeses) + @payment.tiempo_termino
         end
       else
         format.html { render :new }
@@ -76,6 +74,6 @@ class PaymentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def payment_params
-      params.require(:payment).permit( :identifier, :payer_id, :completed, :canceled, :imagen, :tiempo_termino)
+      params.require(:payment).permit( :identifier, :payer_id, :completed, :canceled, :imagen, :tiempo_termino, :cantmeses)
     end
 end
