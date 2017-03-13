@@ -20,6 +20,15 @@
         </div>
 
       </nav>
+      <ul class="nav navbar-nav navbar-right">
+                <li><%= link_to 'Posts', '#' %></li>
+                <% if current_client %>
+                    <li><%= link_to 'Edit Profile',edit_client_registration_path %></li>
+                    <li><%= link_to 'Logout', destroy_client_session_path, method: :delete %></li>
+                <% else %>
+                    <li><%= link_to 'Login', new_client_session_path %></li>
+                <% end %>
+            </ul>
   </div>
 </header>
 <body>
