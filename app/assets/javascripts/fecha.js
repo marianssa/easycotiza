@@ -1,1 +1,1 @@
-jquery -> $('#client_date_of_birt').datepicker()
+jquery -> $('#client_date_of_birth').datepicker()

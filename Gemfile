@@ -58,4 +58,5 @@ gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin'
 gem 'formtastic'
 gem 'rails_12factor', group: :production
 gem 'credit_card_validator'
-gem 'jquery-ui-rails'
+gem 'jquery-ui-rails', '~> 4.2.1'
+gem 'devise_security_extension'
