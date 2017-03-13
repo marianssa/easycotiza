@@ -41,7 +41,7 @@ class PaymentsController < ApplicationController
           elsif @payment.plan_id == 3
             @payment.tiempo_termino = @payment.created_at + (61*@payment.cantmeses)
           end
-        else
+  
           if @payment.plan_id == 1
             @payment.tiempo_termino = @payment.created_at + 62 + @payment.tiempo_termino
           elsif @payment.plan_id == 2
