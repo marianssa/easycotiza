@@ -288,9 +288,9 @@ Devise.setup do |config|
   # Deny old password (true, false, count)
   # config.deny_old_passwords = true
 
-  # enable email validation for :secure_validatable. (true, false, validation_options)
+   #enable email validation for :secure_validatable. (true, false, validation_options)
   # dependency: need an email validator like rails_email_validator
-  # config.email_validation = true
+  config.email_validation = true
 
   # captcha integration for recover form
   # config.captcha_for_recover = true
@@ -309,5 +309,6 @@ Devise.setup do |config|
 
   # Time period for account expiry from last_activity_at
   # config.expire_after = 90.days
+  
 
 end
