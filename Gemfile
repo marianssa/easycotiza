@@ -58,3 +58,4 @@ gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin'
 gem 'formtastic'
 gem 'rails_12factor', group: :production
 gem 'credit_card_validator'
+gem 'jquery-ui-rails'

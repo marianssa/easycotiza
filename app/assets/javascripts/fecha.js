@@ -1,0 +1,1 @@
+jquery -> $('#client_date_of_birt').datepicker()
