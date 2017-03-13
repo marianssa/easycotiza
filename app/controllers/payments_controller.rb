@@ -31,9 +31,9 @@ class PaymentsController < ApplicationController
         format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
         format.json { render :show, status: :created, location: @payment }
         if @tiempo_termino == 0
-          @payment.tiempo_termino = @payment.created_at + (61*@payment.cantmeses)
+          @payment.tiempo_termino = @payment.created_at + (61*@payment.meses)
         else
-          @payment.tiempo_termino = @payment.created_at + (61*@payment.cantmeses) + @payment.tiempo_termino
+          @payment.tiempo_termino = @payment.created_at + (61*@payment.meses) + @payment.tiempo_termino
         end
       else
         format.html { render :new }

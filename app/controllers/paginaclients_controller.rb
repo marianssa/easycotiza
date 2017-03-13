@@ -14,6 +14,13 @@ class PaginaclientsController < ApplicationController
 
 	def answer_success
 
+		if params[:answer]
+			@respuesta = Answer.find(params[:answer])
+			@respuesta.estado = true
+			@enterprise = Enterprise.where(id: @respuesta.enterprise_id)
+			
+		end
+
 	end
 	
 end

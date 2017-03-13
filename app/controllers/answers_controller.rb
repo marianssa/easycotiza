@@ -75,6 +75,6 @@ class AnswersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def answer_params
-      params.require(:answer).permit(:answer_cotiza, :accept_date, :fecha, :enterprise_id, :cotizacion_id, :plan_id,:precio,:meses)
+      params.require(:answer).permit(:answer_cotiza, :accept_date, :fecha, :enterprise_id, :cotizacion_id, :plan_id,:precio,:meses, :estado)
     end
 end

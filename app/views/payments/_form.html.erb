@@ -1,66 +1,90 @@
-<div class="container">
-<div class="wrapper">
-<%= form_for payment do |f| %>
 
-  <div class="form-control">
-
-    <h2> Darse de alta </h2>
-    <br>
-    <h4> Proceso de verificación pago </h4>
-    <br>
-    <h5> Conjunte imagen de pago </h5>
+<div class="top_content">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6 col-xs-7">
+      <%=form_for @payment do |f| %>
+        <div class="form-control">
+            <h1 style="text-align: center;"> Suscripcion </h1>
+            <br>
+            <h4> Proceso de verificación pago </h4>
+            <br>
+            <h5> Conjunte imagen de pago </h5>
     
-    <div class="field">
-      <%= f.label :identifier, "Ingrese número de tarjeta" %>
-      <%= f.text_field :identifier %>
-    </div>
-    <div class ="field" id="plan">
-    <%plan=params[:plan_id]%>
-    <%=f.text_field :plan_id, value: params[:plan_id]%>
-    <% if plan ==1%>
-        <%=f.text_field :precio, value: 5500%>
-        <%=f.text_field :meses, value: 2%>
+            <div class="field">
+               <%=f.label :identifier,"Ingrese número de tarjeta"%>
+               <%=f.text_field :identifier%>
+            </div>
+            <div class ="field" id="plan">
+            <%plan = params[:plan_id]%>
+            <%=f.text_field :plan_id, value: params[:plan_id]%>
+            <%if plan ==1%>
+              <%=f.text_field :precio, value: 5500%>
+              <%=f.text_field :meses, value: 2%>
 
-    <%elsif plan==2%>
-        <%=f.text_field :precio, value: 15000%>
-        <%=f.text_field :meses, value: 6%>
-     <%elsif plan==3%>
-        <%=f.text_field :precio, value: 25000%>
-        <%=f.text_field :meses, value: 12%>
-  <%end%>
-  </div>
-    <div class="field">
-      <%= f.label :imagen, "Imagen"%>
-      <%= f.label :imagen do %>
-        <%= f.file_field :imagen %>
-        <%= f.hidden_field :imagen_cache%>
+            <%elsif plan==2%>
+              <%=f.text_field :precio, value: 15000%>
+              <%=f.text_field :meses, value: 6%>
+            <%elsif plan==3%>
+              <%=f.text_field :precio, value: 25000%>
+              <%=f.text_field :meses, value: 12%>
+            <%end%>
+          </div>
+           <div class="field">
+            <%= f.label :imagen, "Imagen"%>
+            <%= f.label :imagen do %>
+            <%= f.file_field :imagen %>
+             <%= f.hidden_field :imagen_cache%>
+             <%end%>
+          </div>
+          <div class="actions" style="text-align: center;">
+            <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+            <%= f.submit "Enviar "%>
+          </div>
+        </div>
       <%end%>
     </div>
-
-    <div class="actions">
-        <%= f.submit %>
-      </div>
-<% end %>
-  	<h2> Si aún no realiza su transacción </h2>
-  	<h2> dirijase a una de las siguientes opciones </h2>
-   <br>
-  	<div class="field">
-  	  <h4> Metodos de pago </h4>
-  	  <h5> Cuenta Rut/ Master Card Nacional </h5>
-      <%= link_to image_tag("bancoestado.png",:width => 100, :height => 100),"https://www.bancoestado.cl/imagenes/comun2008/nuevo_paglg_pers2.html" %>
-  	</div>
-  	<div class="field">
-  	  <h4> Redcompra </h4>
-      <%= link_to image_tag("redcompra.png",:width => 100, :height => 100),"https://www.transbank.cl/public/" %>
-  	</div>
-  	</div>
-  	<div class="field">
-  	  <h4> Visa </h4>
-      <%= link_to image_tag("visa.png",:width => 100, :height => 100),"https://www.visa.cl/pague-con-visa/visa-checkout.html#2" %>
-  	</div>
+    <div class="col-lg-5 text right">
+<div class="form-control">
+  <ul>
+   <li><h4><strong>Notas:</strong></h4></li>
+   <ol>
+    <li>Una vez recibido el comprobante de pago, la empresa verificara su contenido</li>
+    <li>Sera habilitado una vez que el aviso de pago haya sido aceptado</li>
+  </ol>
+  </ul>
   </div>
+</div>
+    <div class="col-lg-5 col-xs-7 text right">
+    <div class="form-control">
+  	     <h3 style="text-align: center;"> Si aún no realiza su transacción </h3>
+  	     <h3 style="text-align: center;"> dirijase a una de las siguientes opciones </h3>
+        <br>
+  	 <div class="field">
+  	   <h4 style="text-align: center;"> Metodos de pago </h4>
+       <table style="text-align: center;">
+       <tr>
+  	   <td><h5> Cuenta Rut</h5>
+       <%=link_to image_tag("bancoestado.png",:width => 60, :height => 60),"https://www.bancoestado.cl/imagenes/comun2008/nuevo_paglg_pers2.html"%></td>
+  
+  	   <td><h4> Redcompra </h4>
+        <%=link_to image_tag("redcompra.png",:width => 70, :height => 70),"https://www.transbank.cl/public/"%></td>
+
+  	   <td><h4> Visa </h4>
+       <%=link_to image_tag("visa.png",:width => 60, :height => 60),"https://www.visa.cl/pague-con-visa/visa-checkout.html#2"%> </td>
+       </tr>
+       </table>
+  </div>
+</div>
+</div>
+
+</div>
 </div>
 </div>
 <script type="text/javascript">
 $("#plan").hide();
+
 </script>
+
+
+

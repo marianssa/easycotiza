@@ -1,0 +1,31 @@
+<html>
+<body>
+
+      <div class="container" style="padding-top: 5cm">
+     <div class="row" >
+        <div class="col-lg-4 col-m-7">
+    		
+
+				<%@enterprise.each do |empresa|%>
+					<figure>
+					<figcaption>
+    				<picture>
+     				 <%=image_tag empresa.imagen,class: "avatar"%>
+    				</picture>
+					<h1 class="name"><%= empresa.nombre%></h1>
+     				 <h3 class="title"><%=empresa.descripcion%></h3>
+      				<h4><%=empresa.telefono%></h4>
+      				<h4><%=empresa.email%></h4>
+      				 </figcaption>
+      				</figure>
+  				   
+    				<%end%>
+  				
+  		
+  		</div>
+
+  </div>
+
+</div>
+  </body>
+</html>
