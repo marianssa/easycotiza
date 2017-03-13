@@ -3,7 +3,7 @@ class Payment < ApplicationRecord
 
 
   validates :identifier, uniqueness: true
-  validates :cantmeses, presence: true
+
   attr_accessor :imagen, :imagen_cache, :remove_imagen
   mount_uploader :imagen, FotoUploader
   #+++++++++++++++++++++++++++++++++++++++

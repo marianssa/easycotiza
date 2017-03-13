@@ -18,7 +18,7 @@
   
       
        <div class="form-control" style="text-align: left">
-       <p style="text-align: right;"><%=link_to "Aceptar",respuesta_aceptada_path, class: "button3"%></p>
+       <p style="text-align: right;"><%=link_to "Aceptar",respuesta_aceptada_path(:answer_id), class: "button3"%></p>
 
         <li><% empresa= Enterprise.where(id: respuesta.enterprise_id).pluck( :nombre)%>
         <p><i class="fa fa-user" aria-hidden="true" style="font-size: 20px"></i><u><%=empresa[0]%></u> :</p>

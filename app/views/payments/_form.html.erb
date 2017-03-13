@@ -1,4 +1,3 @@
-<%meses={1=>1, 2=>2, 3=> 3, 4=> 4, 5=> 5, 6=> 6, 7=> 7, 8=> 8, 9=> 9, 10=>10, 11=>11, 12=>12}%>
 <div class="container">
 <div class="wrapper">
 <%= form_for payment do |f| %>
@@ -6,19 +5,30 @@
   <div class="form-control">
 
     <h2> Darse de alta </h2>
-    <h2></h2>
+    <br>
     <h4> Proceso de verificación pago </h4>
-    <h4></h4>
+    <br>
     <h5> Conjunte imagen de pago </h5>
     
     <div class="field">
       <%= f.label :identifier, "Ingrese número de tarjeta" %>
       <%= f.text_field :identifier %>
     </div>
-    <div class="field">
-      <%= f.label :cantmeses, "Ingrese la cantidad de meses pagados" %>
-      <%= f.select :cantmeses, meses %>
-    </div>
+    <div class ="field" id="plan">
+    <%plan=params[:plan_id]%>
+    <%=f.text_field :plan_id, value: params[:plan_id]%>
+    <% if plan ==1%>
+        <%=f.text_field :precio, value: 5500%>
+        <%=f.text_field :meses, value: 2%>
+
+    <%elsif plan==2%>
+        <%=f.text_field :precio, value: 15000%>
+        <%=f.text_field :meses, value: 6%>
+     <%elsif plan==3%>
+        <%=f.text_field :precio, value: 25000%>
+        <%=f.text_field :meses, value: 12%>
+  <%end%>
+  </div>
     <div class="field">
       <%= f.label :imagen, "Imagen"%>
       <%= f.label :imagen do %>
@@ -33,9 +43,7 @@
 <% end %>
   	<h2> Si aún no realiza su transacción </h2>
   	<h2> dirijase a una de las siguientes opciones </h2>
-    <div class="field">
-      <h3> El valor por mes de membresia es de $40.000 </h3>
-    </div>
+   <br>
   	<div class="field">
   	  <h4> Metodos de pago </h4>
   	  <h5> Cuenta Rut/ Master Card Nacional </h5>
@@ -53,3 +61,6 @@
   </div>
 </div>
 </div>
+<script type="text/javascript">
+$("#plan").hide();
+</script>
