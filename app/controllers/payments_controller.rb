@@ -34,6 +34,21 @@ class PaymentsController < ApplicationController
           @payment.tiempo_termino = @payment.created_at + (61*@payment.meses)
         else
           @payment.tiempo_termino = @payment.created_at + (61*@payment.meses) + @payment.tiempo_termino
+          if @payment.plan_id == 1
+            @payment.tiempo_termino = @payment.created_at + (61*@payment.cantmeses)
+          elsif @payment.plan_id == 2
+            @payment.tiempo_termino = @payment.created_at + (61*@payment.cantmeses)
+          elsif @payment.plan_id == 3
+            @payment.tiempo_termino = @payment.created_at + (61*@payment.cantmeses)
+          end
+        else
+          if @payment.plan_id == 1
+            @payment.tiempo_termino = @payment.created_at + 62 + @payment.tiempo_termino
+          elsif @payment.plan_id == 2
+            @payment.tiempo_termino = @payment.created_at + 183 + @payment.tiempo_termino
+          elsif @payment.plan_id == 3
+            @payment.tiempo_termino = @payment.created_at + 366 + @payment.tiempo_termino
+          end
         end
       else
         format.html { render :new }
