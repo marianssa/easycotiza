@@ -1,8 +1,16 @@
 ActiveAdmin.register Payment do
-
-selectable_column
+	filter :id
+	filter :canceled
+	scope :all, :default => true
+	scope :No_pagados do |pagos|
+		pagos.where(:canceled => false)
+	end
+	index do
+ 		selectable_column
     	id_column
-    	column "Nombre Empresa", :empresa_nombre
-    	column "tiempo plan", :tiempo_termino
+    	column "Nombre_Empresa", :empresa_nombre
+    	column "tiempo_plan", :tiempo_termino
     	image_column :imagen, style: :thumb
+    end
+
 end

@@ -9,7 +9,7 @@ class Enterprise < ApplicationRecord
   attr_accessor :imagen, :imagen_cache, :remove_imagen
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-   	validates :telefono, :nombre, :rut, :email,:provincia, presence: true, confirmation: true
+  validates :telefono, :nombre, :rut, :email,:provincia, presence: true, confirmation: true
 	validates :telefono, numericality: {only_integer: true}
 	#validates_format_of :nombre, :with => /\A[a-z]+\z/i, message: "Nombre de empresa invalido no se permiten numeros"
 	validates_format_of :nombre, :with => /\A[^0-9`!@#\$%\^&*+_=]+\z/i,message: "Nombre de empresa invalido no se permiten numeros y/o metacaracteres"
