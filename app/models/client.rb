@@ -10,7 +10,7 @@ class Client < ApplicationRecord
     validates :nombre, presence: true, length:{in:4..20, 
   		too_short:"Revisa el nombre ingresado, parece demasiado corto", 
 		too_long:"Revisa el nombre ingresado, parece demasiado largo"}
-	validates_format_of :nombre, :with => /\A[a-z]+\z/i, message: "Nombre invalido no se permiten numeros"
+	validates_format_of :nombre, :with => /\A[^0-9`!@#\$%\^&*+_=]+\z/i , message: "Nombre invalido no se permiten numeros"
 	validates_uniqueness_of :rut
 	validates :rut, rut: true, uniqueness: {case_sensitive: false,message:"Oops! ese rut ya esta registrado"}
 	 validates :telefono, presence: true
