@@ -1,5 +1,5 @@
 class PlanesController < InheritedResources::Base
-
+ before_action :authenticate_enterprises!
 
  def index 
  	@planes= Plane.all

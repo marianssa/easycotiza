@@ -82,7 +82,16 @@
         <%= f.label :fecha_de_nacimiento%><br />
         <%= f.text_field :date_of_birth, class: "datepicker"%>
     </div>
+    <div class="field">
+       <%=f.label :Pregunta_secreta%>
+    <option>Selecciona una pregunta</option>
+    <%= f.select :security_question_id,SecurityQuestion.all.collect {|f| [ "#{f.name}",f.id ] }  %>
+    </div>
 
+    <div class="field">
+    <%=f.label :"Ingrese la respuesta "%>
+    <%=f.text_field :security_question_answer%>
+    </div>
     <div class="field">
       <%= f.label :email %><br />
       <%= f.email_field :email %>
@@ -100,7 +109,10 @@
       <%= f.label :confirmar_constraseña %><br />
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
-
+    <div class ="field">
+    <<%= captcha_tag %>
+    <%= text_field_tag :captcha %>
+</div>
     <div class="actions">
       <%= f.submit "Sign up" %>
     </div>

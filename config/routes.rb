@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  captcha_route
   resources :planes
   resources :catalogos
   devise_for :admin_users, ActiveAdmin::Devise.config

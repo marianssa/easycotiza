@@ -3,9 +3,10 @@ class Client < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :security_questionable
     has_many :calificacions     
     has_many :cotizacions
+  
     validates :rut, :email, :date_of_birth, :provincia, presence: true
     validates :nombre, presence: true, length:{in:4..20, 
   		too_short:"Revisa el nombre ingresado, parece demasiado corto", 

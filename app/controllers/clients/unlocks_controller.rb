@@ -1,4 +1,6 @@
 class Clients::UnlocksController < Devise::UnlocksController
+  before_action :security_question_answered!
+
   # GET /resource/unlock/new
   # def new
   #   super
