@@ -82,7 +82,7 @@ Rails.application.configure do
     :address => "smtp.gmail.com",
     :port => "587",
     :domain => "heroku.com",
-    :authentication => :plain,
+    :authentication => 'plain',
     :user_name => "easy.cotiza@gmail.com",
     :password => "easycotiza123"
   }

@@ -27,5 +27,5 @@ class Client < ApplicationRecord
 
 	#para ser llamado para calificar
 	ratyrate_rater
-	validates :date_of_birth, acceptance: { accept: 'yes' }
+	validates :date_of_birth
 end

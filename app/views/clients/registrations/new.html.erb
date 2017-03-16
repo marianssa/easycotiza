@@ -124,7 +124,8 @@
       <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Ingrese contraseña" %>
     </div>
     <div class ="field">
-    <<%= captcha_tag %>
+    <%= f.label :"Ingrese captcha"%>
+    <%= captcha_tag %>
     <%= text_field_tag :captcha %>
 </div>
     <div class="actions">
