@@ -1,4 +1,5 @@
 class Clients::PasswordsController < Devise::PasswordsController
+  before_action :security_question_answered!
   # GET /resource/password/new
   # def new
   #   super

@@ -76,7 +76,7 @@
     <div class="control-group<%= @client.errors[:nombre].any? ? " error" : "" %>">
       <%= f.label :nombre, "Nombre", :class => 'control-label' %>
       <div class="controls" >
-      <%=f.text_field :nombre:class => 'text_field'%>
+      <%=f.text_field :nombre, :class => 'text_field'%>
       <span class="help-inline">
       <%= @client.errors[:nombre].any? ? @client.errors[:nombre].to_s[/\w([^"]*)/] : "" %></span>
       </div>

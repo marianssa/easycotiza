@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-
   captcha_route
   resources :planes
   resources :catalogos
@@ -38,6 +36,7 @@ end
   get '/respuestas_recibidas'=>'paginaclients#respuestas'
 
   get '/respuesta_aceptada'=>'paginaclients#answer_success'
+  get '/nueva_contrasena' => 'paginaclients#new'
 
 
   resources :payments
