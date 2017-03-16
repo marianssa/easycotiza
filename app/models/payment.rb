@@ -1,5 +1,6 @@
 class Payment < ApplicationRecord
   belongs_to :enterprises
+  has_many :planes
 
 
   validates :identifier, uniqueness: true

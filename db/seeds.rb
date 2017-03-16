@@ -37,3 +37,7 @@ categorias= Category.create([
  {nombre: "ventanas", area: "remodelacion"}])
 
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+
+Plane.create([{nombre: "basico",precio: 5500, descripcion: "Utiliza nuestros servicios durante dos meses.", meses:2},
+	{nombre: "avanzado", precio:15000, descripcion:"Aprovecha 6 meses de suscripción en nuestra pagina.", meses: 6},
+	{nombre:"full",precio: 25000, descripcion:"Disfruta de nuestra pagina durante 12 meses",meses:12}])

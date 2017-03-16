@@ -15,21 +15,6 @@
                <%=f.label :identifier,"Ingrese número de tarjeta"%>
                <%=f.text_field :identifier%>
             </div>
-            <div class ="field" id="plan">
-            <%plan = params[:plan_id]%>
-            <%=f.text_field :plan_id, value: params[:plan_id]%>
-            <%if plan ==1%>
-              <%=f.text_field :precio, value: 5500%>
-              <%=f.text_field :meses, value: 2%>
-
-            <%elsif plan==2%>
-              <%=f.text_field :precio, value: 15000%>
-              <%=f.text_field :meses, value: 6%>
-            <%elsif plan==3%>
-              <%=f.text_field :precio, value: 25000%>
-              <%=f.text_field :meses, value: 12%>
-            <%end%>
-          </div>
            <div class="field">
             <%= f.label :imagen, "Imagen"%>
             <%= f.label :imagen do %>
@@ -81,10 +66,6 @@
 </div>
 </div>
 </div>
-<script type="text/javascript">
-$("#plan").hide();
-
-</script>
 
 
 

@@ -1,0 +1,40 @@
+<body>
+  <div class="container">
+    <div class="service_area">
+    <%@planes.each do |plan|%>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="service_block">
+            <div class="service_icon delay-03s animated wow  zoomIn"> <span><i class="fa fa-hand-peace-o"></i></span> </div>
+            <h3 class="animated fadeInUp wow">Plan <%=plan.nombre%></h3>
+            <p class="animated fadeInDown wow" style="color: black"><strong><%=plan.descripcion%></strong></p>
+            <p class="animated fadeInDown wow" style="color: black"> <strong><%=plan.precio%></strong></p>
+            <br>
+            <p class="animated fadeInDown wow"><%=link_to "Elegir",new_payment_path(:plan),class: "button3"%></p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="service_block">
+            <div class="service_icon icon2  delay-03s animated wow zoomIn"> <span><i class="fa fa-rocket"></i></span> </div>
+            <h3 class="animated fadeInUp wow">Plan <%=plan.nombre%></h3>
+            <p class="animated fadeInDown wow" style="color: black"><strong><%=plan.descripcion%></strong></p>
+            <p class="animated fadeInDown wow" style="color: black"><strong><%=plan.precio%></strong></p>
+            <br>
+            <p class="animated fadeInDown wow"><%=link_to "Elegir",new_payment_path(:plan),class: "button3"%></p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="service_block">
+            <div class="service_icon icon3  delay-03s animated wow zoomIn"> <span><i class="fa fa-star-o"></i></span> </div>
+            <h3 class="animated fadeInUp wow">Plan <%=plan.nombre%></h3>
+            <p class="animated fadeInDown wow" style="color: black"><strong><%=plan.descripcion%></strong></p>
+            <p class="animated fadeInDown wow" style="color: black"><strong><%=plan.precio%></strong></p>
+            <br>
+            <p class="animated fadeInDown wow"><%=link_to "Elegir",new_payment_path(:plan),class: "button3"%></p>
+          </div>
+        </div>
+      </div>
+      <%end%>
+    </div>
+  </div>
+</body>

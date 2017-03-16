@@ -10,6 +10,7 @@ class PaymentsController < ApplicationController
   # GET /payments/1
   # GET /payments/1.json
   def show
+    @payments = Payment.where(enterprise_id: current_enterprise)
   end
 
   # GET /payments/new
@@ -26,31 +27,21 @@ class PaymentsController < ApplicationController
   def create
     @payment = Payment.new(payment_params)
     @payment.enterprise_id = current_enterprise.id
+    @payment.nombre_empresa = current_enterprise.nombre
+    @payment.tiempo_termino = Time.now
+
+    if @payment.plane_id == 1
+            @payment.tiempo_termino = @payment.tiempo_termino+ 62.days
+          elsif @payment.plane_id == 2
+            @payment.tiempo_termino = @payment.tiempo_termino + 183.days
+          elsif @payment.plane_id == 3
+            @payment.tiempo_termino = @payment.tiempo_termino + 366.days
+    end
     respond_to do |format|
       if @payment.save
+        
         format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
         format.json { render :show, status: :created, location: @payment }
-        if @payment.tiempo_termino == nil
-            @payment.tiempo_termino==0
-        end
-        if ((@payment.tiempo_termino == 0) or (@payment.tiempo_termino < Date.today)) 
-          if @payment.plan_id == 1
-            @payment.tiempo_termino = @payment.created_at.day+ 62.days
-          elsif @payment.plan_id == 2
-            @payment.tiempo_termino = @payment.created_at + 183
-          elsif @payment.plan_id == 3
-            @payment.tiempo_termino = @payment.created_at + 366
-          end
-        else
-          @payment.tiempo_termino = @payment.tiempo_termino - @payment.created_at
-          if @payment.plan_id == 1
-            @payment.tiempo_termino = @payment.created_at + 62 + @payment.tiempo_termino
-          elsif @payment.plan_id == 2
-            @payment.tiempo_termino = @payment.created_at + 183 + @payment.tiempo_termino
-          elsif @payment.plan_id == 3
-            @payment.tiempo_termino = @payment.created_at + 366 + @payment.tiempo_termino
-          end
-        end
       else
         format.html { render :new }
         format.json { render json: @payment.errors, status: :unprocessable_entity }
@@ -90,6 +81,6 @@ class PaymentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def payment_params
-      params.require(:payment).permit( :identifier, :payer_id, :completed, :canceled, :imagen, :tiempo_termino,:enterprise_id,:empresa_nombre)
+      params.require(:payment).permit( :identifier, :payer_id, :completed, :canceled, :imagen, :tiempo_termino,:enterprise_id,:nombre_empresa, :plan_id, :imagen_cache, :meses, :precio)
     end
 end
