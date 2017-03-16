@@ -86,10 +86,9 @@
     <div class="form-field form-group responsive_select">
       <%=f.label :Provincia%><br/>
       <%=f.select :provincia,regiones, class: "form-control" %>
-    <div>
-        <%= f.label :Fecha_de_inicio%><br />
-        <%= f.date_select :fecha_de_inicio,:order => [:day, :month, :year],:use_month_names => [t(:en), t(:feb), t(:mar), t(:apr), t(:may), t(:jun), t(:jul), t(:aug), t(:sep), t(:oct), t(:nov), t(:dec)], :start_year => 1900, class: "form-control"%>
-
+     <div>
+        <%= f.label :fecha_de_nacimiento%><br />
+        <%= f.text_field :date_of_birth, class: "datepicker"%>
     </div>
 
     <div class="form-field form-group responsive_select">
