@@ -3,8 +3,8 @@ index do
 		selectable_column
     	id_column
     	column "Nombre Plan", :nombre
-    	column "Rut", :precio
-    	column "Rut", :meses	
-    	column "Rut", :descripcion
+    	column "Precio", :precio
+    	column "Meses", :meses	
+    	column "Descripcion", :descripcion
 end
 end

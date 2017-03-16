@@ -20,6 +20,21 @@
     <link href="stylesheet/animate.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lato:400,900,700,700italic,400italic,300italic,300,100italic,100,900italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Dosis:400,500,700,800,600,300,200' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8" />
+      <title>jQuery UI Datepicker - Estilo Cupertino</title>
+      <link rel="stylesheet" href="jquery-ui-1.10.2.cupertino.css" />
+      <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+      <script src="jquery.ui.datepicker-es.js"></script>
+
+      <script>
+      $(function () {
+      $.datepicker.setDefaults($.datepicker.regional["es"]);
+      $("#datepicker").datepicker({
+        firstDay: 1
+        });
+        });
+      </script>
 </head>
 <body>
   <nav class="navbar navbar-default navbar-static-top " style="background-color: #01DF74">
@@ -64,7 +79,8 @@ function resizeText() {
   $(".divclass").css("font-size", newFontSizeTitle)
 }
 </script>
-
+Fecha:
+<div id="datepicker"></div>
 
     <%= yield %>
   </body>
