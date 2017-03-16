@@ -25,26 +25,27 @@ class PaymentsController < ApplicationController
   # POST /payments
   # POST /payments.json
   def create
-    @payment = Payment.new(payment_params)
-    @payment.enterprise_id = current_enterprise.id
-    @payment.nombre_empresa = current_enterprise.nombre
-    @payment.tiempo_termino = Time.now
+    @payment = Payment.new(payment_params) 
+  
+      @payment.enterprise_id = current_enterprise.id
+      @payment.nombre_empresa = current_enterprise.nombre
+      @payment.tiempo_termino = Time.now
 
-    if @payment.plane_id == 1
-            @payment.tiempo_termino = @payment.tiempo_termino+ 62.days
-          elsif @payment.plane_id == 2
-            @payment.tiempo_termino = @payment.tiempo_termino + 183.days
-          elsif @payment.plane_id == 3
-            @payment.tiempo_termino = @payment.tiempo_termino + 366.days
-    end
-    respond_to do |format|
-      if @payment.save
+      if @payment.plane_id == 1
+             @payment.tiempo_termino = @payment.tiempo_termino+ 62.days
+           elsif @payment.plane_id == 2
+             @payment.tiempo_termino = @payment.tiempo_termino + 183.days
+            elsif @payment.plane_id == 3
+             @payment.tiempo_termino = @payment.tiempo_termino + 366.days
+      end
+      respond_to do |format|
+        if @payment.save
         
-        format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
-        format.json { render :show, status: :created, location: @payment }
-      else
-        format.html { render :new }
-        format.json { render json: @payment.errors, status: :unprocessable_entity }
+          format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
+          format.json { render :show, status: :created, location: @payment }
+        else
+          format.html { render :new }
+          format.json { render json: @payment.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -81,6 +82,6 @@ class PaymentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def payment_params
-      params.require(:payment).permit( :identifier, :payer_id, :completed, :canceled, :imagen, :tiempo_termino,:enterprise_id,:nombre_empresa, :plan_id, :imagen_cache, :meses, :precio)
+      params.require(:payment).permit( :identifier, :payer_id, :completed, :canceled, :imagen, :tiempo_termino,:enterprise_id,:nombre_empresa, :plane_id, :imagen_cache)
     end
 end

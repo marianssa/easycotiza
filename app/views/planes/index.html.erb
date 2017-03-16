@@ -3,6 +3,11 @@
     <div class="service_area">
       <div class="row">
        <%@planes.each do |plan|%>
+
+       <div class="field" id="gg">
+          <!--- Diegoku-->
+         <h1><%=plan.id%></h1>
+        </div>
         <div class="col-lg-4">
           <div class="service_block">
            
@@ -11,7 +16,8 @@
             <p class="animated fadeInDown wow" style="color: black"><strong><%=plan.descripcion%></strong></p>
             <p class="animated fadeInDown wow" style="color: black"> <strong><%=plan.precio%></strong></p>
             <br>
-            <p class="animated fadeInDown wow"><%=link_to "Elegir",new_payment_path(:plan),class: "button3"%></p>
+
+            <p class="animated fadeInDown wow"><%=link_to "Elegir",new_payment_path(:plan => plan),class: "button3"%></p>
           </div>
           
         </div>
@@ -21,3 +27,10 @@
     </div>
   </div>
 </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+        $("h1").hide();
+    });
+</script>

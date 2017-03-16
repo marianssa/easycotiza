@@ -38,7 +38,6 @@ end
 
   get '/respuesta_aceptada'=>'paginaclients#answer_success'
 
-  get '/planes' => 'payments#planes'
 
   resources :payments
 end

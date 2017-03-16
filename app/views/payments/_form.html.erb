@@ -15,6 +15,9 @@
                <%=f.label :identifier,"Ingrese número de tarjeta"%>
                <%=f.text_field :identifier%>
             </div>
+            <div class= "field" id="gg">
+            <%=f.text_field :plane_id, value:params[:plan] %>
+            </div>
            <div class="field">
             <%= f.label :imagen, "Imagen"%>
             <%= f.label :imagen do %>
@@ -68,4 +71,9 @@
 </div>
 
 
+<script type="text/javascript">
 
+$(document).ready(function(){
+        $("#gg").hide();
+    });
+</script>

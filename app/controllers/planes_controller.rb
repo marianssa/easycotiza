@@ -8,7 +8,7 @@ class PlanesController < InheritedResources::Base
   private
 
     def plane_params
-      params.require(:plane).permit(:nombre, :precio, :meses, :descripcion)
+      params.require(:plane).permit(:nombre, :precio, :meses, :descripcion,:id)
     end
 end
 

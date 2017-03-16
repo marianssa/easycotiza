@@ -1,3 +1,3 @@
 class Plane < ApplicationRecord
-	belongs_to :payment
+	has_many :payments
 end
