@@ -28,4 +28,3 @@ class Client < ApplicationRecord
 	ratyrate_rater
 	validates :date_of_birth, acceptance: { accept: 'yes' }
 end
-end
