@@ -13,8 +13,8 @@ before_action :security_question_answered!
   def create
     
     @client = Client.new(user_params)
+    respond_to do |format|
     if @client.valid? 
-  respond_to do |format|
     if @client.save
 
       Welcome.notify(@client).deliver_now
@@ -25,7 +25,7 @@ before_action :security_question_answered!
       format.html { render :new }
       format.json { render json: @client.errors, status: :unprocessable_entity }
     end
-  end
+    end
     super
   end
   end
