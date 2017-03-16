@@ -5,12 +5,29 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.text_field :email, autofocus: true, :id => 'email'%>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+  <div class="field">
+    <%= link_to "Send me reset password instructions",nueva_contrasena_path(:email =>@email), :id => 'save_search'%>
   </div>
 <% end %>
 
 <%= render "clients/shared/links" %>
+<script type="text/javascript">
+$(function() {
+    // Add click event binding to `Save search` link
+    $("#save_search").on("click", function(event) {
+        event.preventDefault(); // don't trigger default
+
+        // get the value inside the text field
+        var name = $("#email").val();
+
+        $.get('/nueva_contrasena', { email: name},dataType: "script", function(data) {
+            // log the result from the server, or whatever...
+            console.log(data);
+        });
+    });
+});
+
+</script>

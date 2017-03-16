@@ -1,5 +1,5 @@
 class PaginaclientsController < ApplicationController
-	before_action :authenticate_client!
+	before_action :authenticate_client!, except: [:new]
 
 	def pageclient
 		 @client = current_client
@@ -22,5 +22,12 @@ class PaginaclientsController < ApplicationController
 		end
 
 	end
+
+	def new
+	 @client = Client.where(email: params[:email]).pluck(:id)
+
+	end
+
+	
 	
 end
