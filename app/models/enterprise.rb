@@ -13,6 +13,7 @@ class Enterprise < ApplicationRecord
 	validates :telefono, numericality: {only_integer: true}
 	#validates_format_of :nombre, :with => /\A[a-z]+\z/i, message: "Nombre de empresa invalido no se permiten numeros"
 	validates_format_of :nombre, :with => /\A[^0-9`!@#\$%\^&*+_=]+\z/i,message: "Nombre de empresa invalido no se permiten numeros y/o metacaracteres"
+  validates_format_of :apellido, :with => /\A[^0-9`!@#\$%\^&*+_=]+\z/i,message: "Apellido de empresa invalido no se permiten numeros y/o metacaracteres"
   #validacion correo 
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i 
 	validates :email, format: { :with => VALID_EMAIL_REGEX, message: "El correo es invalido"},uniqueness:{case_sensitives: false, message: "Este email ya se encuentra registrado"}
@@ -22,7 +23,6 @@ class Enterprise < ApplicationRecord
 
 	validates :rut, rut: true, uniqueness: {case_sensitives: false, message:"Este rut ya se encuentra registrado"}
   validates_uniqueness_of :rut
-  validates :nombre, uniqueness: {case_sensitives: false, message: "EL nombre ya se encuetra registrado"}
 	#imagen para referenciar donde se subira logo mediante clase FotoUploader
 	mount_uploader :imagen, FotoUploader
 	#+++++++++++++++++++++++++++++++++++++++

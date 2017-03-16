@@ -13,7 +13,7 @@ before_action :security_question_answered!
   def create
     
     @client = Client.new(user_params)
-
+    if @client.valid? 
   respond_to do |format|
     if @client.save
 
@@ -27,6 +27,7 @@ before_action :security_question_answered!
     end
   end
     super
+  end
   end
 
   # GET /resource/edit

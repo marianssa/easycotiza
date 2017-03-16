@@ -11,6 +11,7 @@ class Client < ApplicationRecord
     validates :nombre, presence: true, length:{in:4..20, 
   		too_short:"Revisa el nombre ingresado, parece demasiado corto", 
 		too_long:"Revisa el nombre ingresado, parece demasiado largo"}
+  	validates_format_of :apellido, :with => /\A[^0-9`!@#\$%\^&*+_=]+\z/i,message: "Apellido de empresa invalido no se permiten numeros y/o metacaracteres"
 	validates_format_of :nombre, :with => /\A[^0-9`!@#\$%\^&*+_=]+\z/i , message: "Nombre invalido no se permiten numeros"
 	validates_uniqueness_of :rut
 	validates :rut, rut: true, uniqueness: {case_sensitive: false,message:"Oops! ese rut ya esta registrado"}
@@ -25,4 +26,6 @@ class Client < ApplicationRecord
 	validates :rut, rut: true
 	#para ser llamado para calificar
 	ratyrate_rater
+	validates :date_of_birth, acceptance: { accept: 'yes' }
+end
 end

@@ -59,14 +59,32 @@
  <div class ="form-control">
   <%= devise_error_messages! %>
 
+  <% if @client.errors.any? %>
+ <div id="error_explanation">
+  <ul>
+   <% @client.errors.full_messages.each do |message| %>
+   <li><%= message %></li>
+   <% end %>
+  </ul>
+ </div>
+<% end %>
     <div class="field">
       <%= f.label :rut, "Rut" %><br/ >
       <%=f.text_field :rut,autofocus:true%>
     </div>
 
+    <div class="control-group<%= @client.errors[:nombre].any? ? " error" : "" %>">
+      <%= f.label :nombre, "Nombre", :class => 'control-label' %>
+      <div class="controls" >
+      <%=f.text_field :nombre:class => 'text_field'%>
+      <span class="help-inline">
+      <%= @client.errors[:nombre].any? ? @client.errors[:nombre].to_s[/\w([^"]*)/] : "" %></span>
+      </div>
+    </div>
+
     <div class="field">
-      <%= f.label :nombre, "Nombre" %><br/ >
-      <%=f.text_field :nombre%>
+      <%= f.label :apellido, "Apellido" %><br/ >
+      <%=f.text_field :apellido%>
     </div>
 
     <div class="field">
