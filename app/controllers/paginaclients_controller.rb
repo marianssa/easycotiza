@@ -24,7 +24,11 @@ class PaginaclientsController < ApplicationController
 	end
 
 	def new
-	 @client = Client.where(email: params[:email]).pluck(:id)
+	 	@client = Client.find_by_email(params[:email])
+	 	respond_to do |format|
+  		format.html
+		end
+
 
 	end
 

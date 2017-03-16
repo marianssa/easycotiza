@@ -23,7 +23,8 @@ class Client < ApplicationRecord
 	# valida que sea correo unico 
 	validates :email, uniqueness: {case_sensitives: false, message: "ya esta registrado"}
 	#validacion de rut con la gema rut_validation
-	validates :rut, rut: true, message: "Debe agregar guion al rut"
+	validates :rut, rut: true 
+
 	#para ser llamado para calificar
 	ratyrate_rater
 	validates :date_of_birth, acceptance: { accept: 'yes' }

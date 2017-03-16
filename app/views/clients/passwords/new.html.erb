@@ -9,8 +9,13 @@
   </div>
 
   <div class="field">
-    <%= link_to "Send me reset password instructions",nueva_contrasena_path(:email =>@email), :id => 'save_search'%>
+    <%= link_to "Send me reset password instructions",nueva_contrasena_path( @email), :id => 'save_search'%>
   </div>
+
+  <div class="actions">
+    <%= f.submit "Send me reset password instructions" %>
+  </div>
+
 <% end %>
 
 <%= render "clients/shared/links" %>
@@ -21,12 +26,12 @@ $(function() {
         event.preventDefault(); // don't trigger default
 
         // get the value inside the text field
-        var name = $("#email").val();
+        var email = $("#email").val();
 
-        $.get('/nueva_contrasena', { email: name},dataType: "script", function(data) {
+        $.get('/nueva_contrasena', {email}, function(data) {
             // log the result from the server, or whatever...
             console.log(data);
-        });
+        },"json");
     });
 });
 

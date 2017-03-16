@@ -1,20 +1,16 @@
 <h2>Forgot your password?</h2>
 
-<%= form_for @client do |f| %>
-
-
+<%= form_for(@client) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.label :password, "Password" %><br />
+    <%= f.password_field :password, :autocomplete => "off"  %>
   </div>
-
-
   <div class="field">
-  <%=f.label :"Responda la pregunta de seguridad"%>
-  <p><%=SecurityQuestion.where(id: current_client.security_question_id).pluck(:name)%></p>
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
   </div>
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+  <div class="action_container">
+    <%= f.submit %>
   </div>
 <% end %>
 
