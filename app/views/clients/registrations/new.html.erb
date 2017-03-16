@@ -70,26 +70,21 @@
 <% end %>
     <div class="field">
       <%= f.label :rut, "Rut" %><br/ >
-      <%=f.text_field :rut,autofocus:true%>
-    </div>
-
-    <div class="control-group<%= @client.errors[:nombre].any? ? " error" : "" %>">
-      <%= f.label :nombre, "Nombre", :class => 'control-label' %>
-      <div class="controls" >
-      <%=f.text_field :nombre:class => 'text_field'%>
-      <span class="help-inline">
-      <%= @client.errors[:nombre].any? ? @client.errors[:nombre].to_s[/\w([^"]*)/] : "" %></span>
-      </div>
+      <%=f.text_field :rut,autofocus:true, placeholder: "Debe agragar guion al Rut"%>
     </div>
 
     <div class="field">
+      <%= f.label :nombre, "Nombre" %><br/ >
+      <%=f.text_field :nombre, placeholder: "Ingrese nombre" %>
+    </div>
+    <div class="field">
       <%= f.label :apellido, "Apellido" %><br/ >
-      <%=f.text_field :apellido%>
+      <%=f.text_field :apellido, placeholder: "Ingrese Apellido" %>
     </div>
 
     <div class="field">
       <%= f.label :telefono, "telefono" %><br/ >
-      <%=f.text_field :telefono%>
+      <%=f.text_field :telefono, placeholder: "Recordar Anteponer 9 a N° celular y 22 a N° de casa" %>
     </div>
     <div class="field">
       <%=f.label :Provincia%><br/>
@@ -98,7 +93,7 @@
     </div>
     <div>
         <%= f.label :fecha_de_nacimiento%><br />
-        <%= f.text_field :date_of_birth, class: "datepicker"%>
+        <%= f.text_field :date_of_birth, class: "datepicker", placeholder: "aaaa-mm-dd" %>
     </div>
     <div class="field">
        <%=f.label :Pregunta_secreta%>
@@ -108,11 +103,11 @@
 
     <div class="field">
     <%=f.label :"Ingrese la respuesta "%>
-    <%=f.text_field :security_question_answer%>
+    <%=f.text_field :security_question_answer, placeholder: "Respuesta pregunta secreta" %>
     </div>
     <div class="field">
       <%= f.label :email %><br />
-      <%= f.email_field :email %>
+      <%= f.email_field :email "Ingrese mail" %>
     </div>
 
     <div class="field">
@@ -120,12 +115,12 @@
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> caracteres como minimo)</em>
       <% end %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
+      <%= f.password_field :password, autocomplete: "off", placeholder: "Ingrese contraseña" %>
     </div>
 
     <div class="field">
       <%= f.label :confirmar_constraseña %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Ingrese contraseña" %>
     </div>
     <div class ="field">
     <<%= captcha_tag %>
