@@ -98,7 +98,7 @@
               <%= image_tag("#{ current_enterprise.imagen}", :width => 170, :height => 180)%>
             </section>
             <label>calificacion</label>
-            <% if Calificacion.exists enterprise_id: current_enterprise.id%>
+            <% if Calificacion.exists? enterprise_id: current_enterprise.id%>
             <%nota = Calificacion.where(enterprise_id: current_enterprise.id).pluck(:nota).last %>
             <%=nota[0]%>
             <%end%>
