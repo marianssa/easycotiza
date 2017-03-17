@@ -1,5 +1,6 @@
 ActiveAdmin.register Enterprise do
     actions :all, :except => :edit
+    permit_params :nombre,:email, :apellido, :password, :fecha_de_inicio, :telefono, :provincia, :rut, :password_confirmation, :descripcion
 index do
 		selectable_column
     	id_column
@@ -21,5 +22,19 @@ index do
     filter :telefono
     filter :email
     filter :provincia
-
+    form do |f|
+    f.inputs "Empresa" do
+      f.input :rut
+      f.input :nombre
+      f.input :apellido
+      f.input :email
+      f.input :provincia
+      f.input :fecha_de_inicio
+      f.input :telefono
+      f.input :password
+      f.input :password_confirmation
+      f.input :descripcion
+      f.actions
+    end
+    end
 end
