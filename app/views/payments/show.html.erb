@@ -1,9 +1,18 @@
   <h2 style="color: red;text-align: center;">Detalle de pagos</h2>
   <div class="form-control">
     <%@payments.each do |pago|%>
+    <table>
+    <tr>
+        <th>Id Pago </th>
+        <th>Tiempo de termino</th>
 
-      <%=pago.id%>
-      <%=pago.tiempo_termino%>
+    </tr>
+    <tr>
+
+      <td><%=pago.id%></td>
+      <td><%=pago.tiempo_termino%></td>
+    </tr>
+    </table>
     <%end%>
     <div style="text-align: center; padding-top: 1cm">
   <%= link_to "Volver", profesionales_path, class: "buttoncute"%>
