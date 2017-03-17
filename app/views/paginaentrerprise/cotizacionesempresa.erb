@@ -26,10 +26,6 @@
         <td><%= cotizacion.area %></td>
         <td><%= cotizacion.sector %></td>
         <td><%= cotizacion.descripcion %></td>
-        <td><%if cotizacion.estado ==false%>
-            <%="Sin respuestas"%>
-            <%end%>
-        </td>
         <td><%if cotizacion.tiempo = "soon"%>
             <%= "Lo antes posible"%>
             <%elsif cotizacion.tiempo="1a3"%>

@@ -8,9 +8,6 @@
     <%= f.text_field :email, autofocus: true, :id => 'email'%>
   </div>
 
-  <div class="field">
-    <%= link_to "Send me reset password instructions",nueva_contrasena_path( @email), :id => 'save_search'%>
-  </div>
 
   <div class="actions">
     <%= f.submit "Send me reset password instructions" %>

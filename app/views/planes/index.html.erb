@@ -16,16 +16,23 @@
             <p class="animated fadeInDown wow" style="color: black"><strong><%=plan.descripcion%></strong></p>
             <p class="animated fadeInDown wow" style="color: black"> <strong><%=plan.precio%></strong></p>
             <br>
+            <%if @pago_existe%>
+              <p>Ya registra un pago</p>
+            <%else %>
 
             <p class="animated fadeInDown wow"><%=link_to "Elegir",new_payment_path(:plan => plan),class: "button3"%></p>
+            
+            <%end%>
           </div>
           
         </div>
        <%end%>
         </div>
       </div>
+      <div class="wrapper" style="text-align: center">
+<%= link_to "  Volver  ", profesionales_path, class: "buttoncute" %>
+</div>
     </div>
-  </div>
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

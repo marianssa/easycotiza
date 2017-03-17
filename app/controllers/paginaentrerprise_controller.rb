@@ -1,7 +1,8 @@
 class PaginaentrerpriseController < ApplicationController
 	before_action :authenticate_enterprise!
   before_action :cancelado, only: [:cotizaciones, :solicitudes]
-	def pagenterprise
+
+def pagenterprise
 
 	@grouped_payments =Payment.new
     @enterprise =current_enterprise
@@ -23,22 +24,21 @@ else
 end
 
 def cotizacionesempresa 
-if @mostrar
-  if Cotizacion.exists? enterprise_id: current_enterprise.id
+if (Cotizacion.exists? enterprise_id: current_enterprise.id)
     @cotizaciones = Cotizacion.find(:all,:enterprise_id => current_enterprise.id)
-  end
-else 
-  flash[:notice]= "No olvide suscribirse a la pagina"
-  redirect_to profesionales_path
+else
+  flash[:notice]= "No tiene solicitudes de presupuesto para usted"
 end
 end
+
 def calificacion
     @calificaciones = Calificacion.where(enterprise_id: current_enterprise.id)
   end
 private
 
 def cancelado
-   @mostrar = Payment.where(enterprise_id: current_enterprise.id).last
+   @pago = Payment.where(enterprise_id: current_enterprise.id).last
+   @mostrar = @pago.canceled
 
   end
 

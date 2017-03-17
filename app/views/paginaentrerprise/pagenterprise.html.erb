@@ -97,9 +97,9 @@
             <section>
               <%= image_tag("#{ current_enterprise.imagen}", :width => 170, :height => 180)%>
             </section>
-            <label>Calificacion promedio</label>
-            <% id = "#{current_enterprise.category_id}"%>
-            <%nota = Calificacion.select('nota').where(enterprise_id: id).last %>
+            <label>calificacion</label>
+            <%nota = Calificacion.where(enterprise_id: current_enterprise.id).pluck(:nota).last %>
+            <%=nota * " "%>
             <br>
           </div>
           <div class="col-md-8">

@@ -2,6 +2,7 @@ class PaymentsController < ApplicationController
   before_action :set_payment, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_enterprise!
 
+
   # GET /payments
   # GET /payments.json
   def index
@@ -22,6 +23,7 @@ class PaymentsController < ApplicationController
       @payment.nombre_empresa = current_enterprise.nombre
     end
   end
+
 
   # GET /payments/1/edit
   def edit
@@ -54,6 +56,7 @@ class PaymentsController < ApplicationController
       end
     end
   end
+
 
   # PATCH/PUT /payments/1
   # PATCH/PUT /payments/1.json

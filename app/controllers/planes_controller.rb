@@ -3,6 +3,7 @@ class PlanesController < InheritedResources::Base
 
  def index 
  	@planes= Plane.all
+ 	@pago_existe = Payment.exists? enterprise_id: current_enterprise.id
  end
 
 def show
