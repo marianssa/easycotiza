@@ -38,6 +38,8 @@ end
   get '/respuesta_aceptada'=>'paginaclients#answer_success'
   get '/nueva_contrasena' => 'paginaclients#new'
 
+  get '/mis_calificaciones' => 'paginaentrerprise#calificacion'
+
 
   resources :payments
 end

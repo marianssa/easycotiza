@@ -32,15 +32,16 @@ else
   redirect_to profesionales_path
 end
 end
-
+def calificacion
+    @calificaciones = Calificacion.where(enterprise_id: current_enterprise.id)
+  end
 private
 
 def cancelado
-  @enterprise =current_enterprise
-  if @enterprise.estado == false
-      @mostrar = false
+   @mostrar = Payment.where(enterprise_id: current_enterprise.id).last
+
   end
 
-end
+
 end
 
