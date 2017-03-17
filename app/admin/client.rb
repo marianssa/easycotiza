@@ -1,5 +1,6 @@
 ActiveAdmin.register Client do
     actions :all, :except => :edit
+    permit_params :nombre,:rut, :email, :provincia,:date_of_birth, :telefono, :password, :password_confirmation
 	index do
 		selectable_column
     	id_column
