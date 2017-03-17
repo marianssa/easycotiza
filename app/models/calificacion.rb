@@ -9,4 +9,8 @@ class Calificacion < ApplicationRecord
 	ratyrate_rateable "nota"
 
 	validates :nota, presence: true
+	validates :client_id, uniqueness: { scope: :answer_id, message: "¡Ya has entregado tu Calificacion!" }
+
+    belongs_to :answer
+    belongs_to :client
 end
