@@ -3,7 +3,7 @@ class Payment < ApplicationRecord
   belongs_to :plan
 
 
-  validates :identifier, uniqueness: true
+
 
   attr_accessor :imagen, :imagen_cache, :remove_imagen
   mount_uploader :imagen, FotoUploader

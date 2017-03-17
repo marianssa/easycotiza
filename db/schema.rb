@@ -188,17 +188,17 @@ ActiveRecord::Schema.define(version: 20170317040952) do
   end
 
   create_table "payments", force: :cascade do |t|
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "identifier"
     t.string   "payer_id"
     t.boolean  "completed"
-    t.boolean  "canceled"
     t.string   "imagen"
     t.datetime "tiempo_termino"
     t.integer  "enterprise_id"
     t.string   "nombre_empresa"
     t.integer  "plane_id"
+    t.boolean  "canceled",       default: false
   end
 
   create_table "planes", force: :cascade do |t|

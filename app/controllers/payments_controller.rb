@@ -11,7 +11,7 @@ class PaymentsController < ApplicationController
   # GET /payments/1
   # GET /payments/1.json
   def show
-    @payments = Payment.where(enterprise_id: current_enterprise)
+    @payments = Payment.where(enterprise_id: current_enterprise.id)
   end
 
   # GET /payments/new
@@ -19,6 +19,7 @@ class PaymentsController < ApplicationController
     if params[:plan]
       @payment = Payment.new
       @payment.plane_id = params[:plan]
+      @payment.nombre_empresa = current_enterprise.nombre
     end
   end
 
