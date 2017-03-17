@@ -8,4 +8,9 @@ ActiveAdmin.register Category do
 	end
 	filter :area
 	filter :nombre
+	form do |f|
+      f.input :area
+      f.input :nombre
+    f.actions
+  	end
 end

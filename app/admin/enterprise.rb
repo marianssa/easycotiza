@@ -22,5 +22,17 @@ index do
     filter :telefono
     filter :email
     filter :provincia
-
+    form do |f|
+      f.input :rut
+      f.input :nombre
+      f.input :apellido
+      f.input :email
+      f.input :provincia
+      f.input :fecha_de_inicio
+      f.input :telefono
+      f.input :password
+      f.input :password_confirmation
+      f.input :descripcion
+      f.actions
+    end
 end
