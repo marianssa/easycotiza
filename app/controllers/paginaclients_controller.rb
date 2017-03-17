@@ -7,7 +7,7 @@ class PaginaclientsController < ApplicationController
 	end
 
 	def respuestas
-		@cotizaciones =Cotizacion.where(client_id: current_client.id)
+		@cotizaciones =Cotizacion.where(client_id: current_client.id).limit(5)
 		@respuestas= Answer.where(cotizacion_id: @cotizaciones.ids)
 	end
 

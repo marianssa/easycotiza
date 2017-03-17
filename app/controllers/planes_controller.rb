@@ -5,6 +5,10 @@ class PlanesController < InheritedResources::Base
  	@planes= Plane.all
  end
 
+def show
+	
+end
+
   private
 
     def plane_params

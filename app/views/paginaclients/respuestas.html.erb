@@ -8,6 +8,7 @@
 
 <ul>
     <% @cotizaciones.each do |cotizacion| %>
+     <%if (Answer.exists? id: cotizacion.id) %>
      <h3> <i class="fa fa-bookmark-o" aria-hidden="true" style="font-size: 20px;color:red"></i> Cotizacion n° <%=cotizacion.id%></h3>
           
            <li>
@@ -28,6 +29,7 @@
       </div>
       
     <% end %>
+    <%end%>
     <%end%>
 </ul>
 <br>

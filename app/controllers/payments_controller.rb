@@ -16,7 +16,10 @@ class PaymentsController < ApplicationController
 
   # GET /payments/new
   def new
-    @payment = Payment.new
+    if params[:plan]
+      @payment = Payment.new
+      @payment.plane_id = params[:plan]
+    end
   end
 
   # GET /payments/1/edit
