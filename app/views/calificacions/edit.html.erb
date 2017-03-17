@@ -2,5 +2,5 @@
 
 <%= render 'form', calificacion: @calificacion %>
 
-<%= link_to 'Show', @calificacion %> |
-<%= link_to 'Back', calificacions_path %>
+<%= link_to 'Show', client_calificacions_path(id: current_client.id) %> |
+<%= link_to 'Back', client_calificacions_path %>

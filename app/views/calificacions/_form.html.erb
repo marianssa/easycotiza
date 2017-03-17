@@ -1,6 +1,6 @@
 <div class="container">
   <div class="wrapper">
-    <%= form_for @calificacion, :url =>client_calificacions_path do |f| %>
+    <%= form_for ([@client,@calificacion]) do |f| %>
     <% listanumeros = {0=> 0, 1=> 1, 2=>2, 3=> 3, 4=> 4, 5=> 5, 6=> 6, 7=> 7, 8=> 8, 9=> 9} %>
       <% if calificacion.errors.any? %>
         <div id="error_explanation">
@@ -15,11 +15,6 @@
       <% end %>
 
       <div class="form-control">
-
-      <div class="field">
-      <%=f.label :Empresa%>
-      <%= f.select :enterprise_id, Enterprise.all.collect {|f| [ "#{f.nombre}",f.id ] }  %>
-      </div>
         <div class="field">
           <%= f.label :Nota %>
           <p> Ingrese la nota para calificar su respuesta </p>

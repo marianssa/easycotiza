@@ -19,9 +19,9 @@
         <td><%=calificacion.id %></td>
         <td><%= calificacion.nota %></td>
         <td><%=calificacion.enterprise_id%></td>
-        <td><%= link_to 'Show', client_calificacion_path(id:current_client.id) %></td>
-        <td><%= link_to 'Edit', edit_client_calificacion_path(id:current_client.id) %></td>
-        <td><%= link_to 'Destroy',client_calificacion_path(id:current_client.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', client_calificacions_path(id:current_client.id) %></td>
+        <td><%= link_to 'Edit', edit_client_calificacion_path(@client,calificacion) %></td>
+        <td><%= link_to 'Destroy',client_calificacion_path(@client,calificacion), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -29,4 +29,6 @@
 
 <br>
 
-<%= link_to 'New Calificacion', new_client_calificacion_path(current_client.id) %>
+<div class="wrapper" style="text-align: center">
+<%= link_to "  Volver  ", clientes_path, class: "buttoncute" %>
+</div>
