@@ -99,7 +99,7 @@
             </section>
             <label>calificacion</label>
             <%nota = Calificacion.where(enterprise_id: current_enterprise.id).pluck(:nota).last %>
-            <%=nota * " "%>
+            <%=nota.to_s%>
             <br>
           </div>
           <div class="col-md-8">
