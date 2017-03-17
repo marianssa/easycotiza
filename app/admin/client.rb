@@ -1,4 +1,5 @@
 ActiveAdmin.register Client do
+    actions :all, :except => :edit
 	index do
 		selectable_column
     	id_column
