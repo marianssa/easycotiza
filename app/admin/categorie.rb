@@ -9,8 +9,10 @@ ActiveAdmin.register Category do
 	filter :area
 	filter :nombre
 	form do |f|
+	f.inputs "Categoria" do
       f.input :area
       f.input :nombre
     f.actions
   	end
+  end
 end

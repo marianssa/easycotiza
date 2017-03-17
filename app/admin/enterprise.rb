@@ -23,6 +23,7 @@ index do
     filter :email
     filter :provincia
     form do |f|
+    f.inputs "Empresa" do
       f.input :rut
       f.input :nombre
       f.input :apellido
@@ -34,5 +35,6 @@ index do
       f.input :password_confirmation
       f.input :descripcion
       f.actions
+    end
     end
 end

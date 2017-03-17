@@ -23,6 +23,7 @@ ActiveAdmin.register Client do
     filter :email
     filter :provincia
     form do |f|
+      f.inputs "Cliente" do
       f.input :rut
       f.input :nombre
       f.input :apellido
@@ -33,5 +34,6 @@ ActiveAdmin.register Client do
       f.input :password
       f.input :password_confirmation
       f.actions
+    end
     end
 end
