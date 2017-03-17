@@ -3,6 +3,7 @@ class Answer < ApplicationRecord
 	validates_inclusion_of :accept_date, :in => %w(aceptar rechazar)
 	belongs_to :enterprise
 	belongs_to :cotizacion
+	has_one :calificacion
 	validates :answer_cotiza, presence: true,length: { maximum: 200 }
 	validates :enterprise_id, uniqueness: { scope: :cotizacion_id, message: "¡Ya has entregado tu respuesta!" }
 
