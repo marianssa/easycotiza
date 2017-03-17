@@ -119,6 +119,12 @@
     <%= f.label :Confirmar_contraseña%><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
+
+   <div class ="field">
+    <%= f.label :"Ingrese captcha"%>
+    <%= captcha_tag %>
+    <%= text_field_tag :captcha %>
+</div>
   
   <div class="actions">
     <%= f.submit "Sign up" %>

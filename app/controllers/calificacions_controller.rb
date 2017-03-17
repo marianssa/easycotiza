@@ -21,6 +21,7 @@ class CalificacionsController < ApplicationController
     if params[:enterprise_id]
       @calificacion = @client.calificacions.new
       @calificacion.enterprise_id = params[:enterprise_id]
+    end
   end
 
   # GET /calificacions/1/edit
@@ -34,16 +35,12 @@ class CalificacionsController < ApplicationController
   def create
     @client = current_client
     @calificacion = @client.calificacions.new(calificacion_params)
-
-    respond_to do |format|
       if @client.save
         flash[:notice] = "Su calificacion a sido guardada"
         redirect_to client_calificacions_path(params[:client_id])
       else
-        format.html { render :new }
-        format.json { render json: @calificacion.errors, status: :unprocessable_entity }
+         render :new 
       end
-    end
   end
 
   # PATCH/PUT /calificacions/1
@@ -80,6 +77,7 @@ class CalificacionsController < ApplicationController
     def set_calificacion
       @calificacion = Calificacion.find(params[:id])
     end
+
     def set_client
       @client = Client.find(params[:client_id])
     end
