@@ -11,10 +11,6 @@
             <br>
             <h5> Conjunte imagen de pago </h5>
     
-            <div class="field">
-               <%=f.label :identifier,"Ingrese número de tarjeta"%>
-               <%=f.text_field :identifier%>
-            </div>
             <div class= "field" id="gg">
             <%=f.text_field :plane_id, value:params[:plan] %>
             </div>
@@ -32,11 +28,32 @@
         </div>
       <%end%>
     </div>
+     <div class="col-lg-6 col-xs-7 text left">
+     <div class="form-control">
+     <li><h1><strong>NUESTRO DETALLE BANCARIO</strong></h1></li>
+     <ul>
+     <li><h3>Easycotiza - Banco Estado</h3></li>
+     <ul>
+     <table>
+      <tr>
+        <td><h4><strong>NUMERO DE CUENTA</strong><h4></td>
+        <td><h4><strong>TIPO DE CUENTA</strong><h4></td>
+      </tr>
+      <tr>
+        <td><h5>399-0-000361-1<h5></td>
+        <td><h5>cuenta corriente<h5></td>
+      </tr>
+      </table>
+     </div>
+    </div>
+
     <div class="col-lg-5 text right">
 <div class="form-control">
   <ul>
    <li><h4><strong>Notas:</strong></h4></li>
    <ol>
+    <li>Debe acercarse al banco mas cercano para realizar pago  </li>
+    <li>Usted tiene un plazo de 2 dias para poder realizar el pago y adjuntar la foto para comprobacion de pago</li>
     <li>Una vez recibido el comprobante de pago, la empresa verificara su contenido</li>
     <li>Sera habilitado una vez que el aviso de pago haya sido aceptado</li>
   </ol>
