@@ -74,18 +74,23 @@ Rails.application.configure do
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
-  config.action_mailer.default_url_options = { :host => 'easycotiza.herokuapp.com' }
+ config.action_mailer.default_url_options = { :host => 'https://easycotiza.herokuapp.com/' }
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.default :charset => "utf-8"
 
-  #Sending email on the production side
-  config.action_mailer.smtp_settings = {
-    :enable_starttls_auto => true,
-    :address => "smtp.gmail.com",
-    :port => "587",
-    :domain => "heroku.com",
-    :authentication => 'plain',
-    :user_name => "easy.cotiza@gmail.com",
-    :password => "easycotiza123"
-  }
+    config.active_job.queue_adapter = :delayed_job
+    config.action_mailer.smtp_settings = {
+      :address         => "smtp.gmail.com",
+      :port        => 587,
+      :authentication    => 'plain',
+      :domain        => "gmail.com",
+      :user_name       => "easy.cotiza@gmail.com",
+      :password        => "easycotiza123",
+      :enable_starttls_auto => true
+    }
+
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
