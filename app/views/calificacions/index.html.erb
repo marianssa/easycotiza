@@ -18,7 +18,7 @@
       <tr>
         <td><%= calificacion.nota %></td>
 
-        <td><%nombre=Enterprise.where(enterprise_id:calificacion.enterprise_id).plucl(:nombre)%>
+        <td><%nombre=Enterprise.where(enterprise_id:calificacion.enterprise_id).pluck(:nombre)%>
           <%=nombre[0]%>
         </td>
         <td><textarea rows="3" cols="50" readonly><%respuesta = Answer.where(id: calificacion.answer_id).pluck(:answer_cotiza)%> 
