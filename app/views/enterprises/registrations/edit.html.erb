@@ -30,21 +30,22 @@
       <%= f.select :category_id, Category.all.collect {|f| [ "#{f.nombre}",f.id ] }  %>
       </div>
       
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+ <div class="field">
+    <%= f.label :password %> <i>(Si no desea cambiar la contraseña deje el espacio en BLANCO)</i><br />
     <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %><br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> Caracteres como minimo </em>
     <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
+   <div class="field">
+    <%= f.label :confirmacion%><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :contraseña_antigua %> <i>(necesitamos su contraseña antigua para confirmar los cambios)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
