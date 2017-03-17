@@ -18,9 +18,13 @@ class CalificacionsController < ApplicationController
   # GET /calificacions/new
   def new
     @client = current_client
-    if params[:enterprise_id]
+    if params[:enterprise_id] 
       @calificacion = @client.calificacions.new
       @calificacion.enterprise_id = params[:enterprise_id]
+      @calificacion.answer_id = params[:respueta]
+      @respuesta = Answer.find(params[:respuesta])
+      @cotizacion = Cotizacion.where(answer_id: @respuesta.id)
+    
     end
   end
 
@@ -35,6 +39,7 @@ class CalificacionsController < ApplicationController
   def create
     @client = current_client
     @calificacion = @client.calificacions.new(calificacion_params)
+
       if @client.save
         flash[:notice] = "Su calificacion a sido guardada"
         redirect_to client_calificacions_path(params[:client_id])
@@ -84,6 +89,6 @@ class CalificacionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def calificacion_params
-       params.require(:calificacion).permit(:comentario, :enterprise_id, :client_id, :nota)
+       params.require(:calificacion).permit(:comentario, :enterprise_id, :client_id, :nota, :answer_id)
     end
 end

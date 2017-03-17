@@ -5,7 +5,6 @@
 <table>
   <thead>
     <tr>
-      <th>Codigo</th>
       <th>Nota</th>
       <th>empresa id</th>
       <th colspan="3"></th>
@@ -16,12 +15,13 @@
   <tbody>
     <% @calificacions.each do |calificacion| %>
       <tr>
-        <td><%=calificacion.id %></td>
         <td><%= calificacion.nota %></td>
+
         <td><%=calificacion.enterprise_id%></td>
-        <td><%= link_to 'Show', client_calificacions_path(id:current_client.id) %></td>
+        <td><textarea rows="3" cols="50" readonly><%respuesta = Answer.where(id: calificacion.answer_id).pluck(:answer_cotiza)%> 
+        <%=respuesta * " "%></textarea></td>
         <td><%= link_to 'Edit', edit_client_calificacion_path(@client,calificacion) %></td>
-        <td><%= link_to 'Destroy',client_calificacion_path(@client,calificacion), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+   
       </tr>
     <% end %>
   </tbody>

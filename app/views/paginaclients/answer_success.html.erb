@@ -18,7 +18,7 @@
       				<h4><%=empresa.email%></h4>
       				 </figcaption>
       				</figure>
-  				   <%=link_to "Calificar",new_client_calificacion_path(current_client.id, :enterprise_id => empresa.id)%>
+  				   <%=link_to "Calificar",new_client_calificacion_path(current_client.id, :enterprise_id => empresa.id, :respuesta => @respuesta)%>
     				<%end%>
   				
   		

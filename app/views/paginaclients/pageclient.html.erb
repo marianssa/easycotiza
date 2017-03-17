@@ -65,6 +65,7 @@
                                 <li><%= link_to "Historial de calificaciones", client_calificacions_path(current_client.id) %></li>
                                 <li><%=link_to categories_path%></li>
                                 <li><%=link_to "Respuestas recibidas",respuestas_recibidas_path%></li>
+                                <li><%=link_to "Ver empresas", categories_path%></li>
             
                               </ul>
                         </li>
@@ -116,7 +117,7 @@
         <tbody>
     
             <%@cotizacions.each do |cotizacion|%>
-                <%if (Answer.exists? id: cotizacion.id) %>
+                <%if not (Answer.exists? id: cotizacion.id) %>
            
                 <tr>
                     <td><%=cotizacion.descripcion%></td>

@@ -8,7 +8,9 @@
     <tr>
 
       <th>Nota</th>
-      <th>empresa id</th>
+      <th>Cliente que a calificado </th>
+      <th>Comentario</th>
+      <th>Su respuesta </th>
       <th colspan="3"></th>
 
     </tr>
@@ -19,7 +21,12 @@
       <tr>
     
         <td><%= calificacion.nota %></td>
-        <td><%=calificacion.enterprise_id%></td>
+        <td><%client=Client.where(id: calificacion.client_id).pluck(:nombre, :apellido)%>
+          <%=client[0]*" "%>
+        </td>
+        <td ><textarea rows="3" cols="20" readonly><%= calificacion.comentario%> </textarea></td>
+        <td><textarea rows="3" cols="50" readonly><%respuesta = Answer.where(id: calificacion.answer_id).pluck(:answer_cotiza)%> 
+        <%=respuesta * " "%></textarea></td>
       </tr>
     <% end %>
   </tbody>
