@@ -91,7 +91,7 @@
       <%=f.select :provincia,regiones, class: "form-control" %>
      <div>
         <%= f.label :fecha_de_nacimiento%><br />
-        <%= f.text_field :fecha_de_inicio, class: "datepicker", placeholder: "aaaa-mm-dd"%>
+        <%= f.text_field :fecha_de_inicio, class: "datepicker", placeholder: "aaaa-mm-dd", end_year: 2000 %>
     </div>
 
     <div class="form-field form-group responsive_select">
