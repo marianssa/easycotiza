@@ -1,12 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Calificaciones</h1>
-
+<h1 style="color: red; text-align: center"><strong>Calificaciones</strong></h1>
+<div class= "container">
+<div class ="form-control">
 <table>
   <thead>
     <tr>
       <th>Nota</th>
-      <th>empresa id</th>
+      <th>Profesional</th>
       <th colspan="3"></th>
 
     </tr>
@@ -17,7 +18,9 @@
       <tr>
         <td><%= calificacion.nota %></td>
 
-        <td><%=calificacion.enterprise_id%></td>
+        <td><%nombre=Enterprise.where(enterprise_id:calificacion.enterprise_id).plucl(:nombre)%>
+          <%=nombre[0]%>
+        </td>
         <td><textarea rows="3" cols="50" readonly><%respuesta = Answer.where(id: calificacion.answer_id).pluck(:answer_cotiza)%> 
         <%=respuesta * " "%></textarea></td>
         <td><%= link_to 'Edit', edit_client_calificacion_path(@client,calificacion) %></td>
@@ -26,7 +29,8 @@
     <% end %>
   </tbody>
 </table>
-
+</div>
+</div>
 <br>
 
 <div class="wrapper" style="text-align: center">
