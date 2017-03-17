@@ -1,4 +1,5 @@
   <h2 style="color: red;text-align: center;">Detalle de pagos</h2>
+  <div class="container-fluid">
   <div class="form-control">
     <%@payments.each do |pago|%>
     <table>
@@ -14,8 +15,9 @@
     </tr>
     </table>
     <%end%>
+</div>
+</div>
     <div style="text-align: center; padding-top: 1cm">
   <%= link_to "Volver", profesionales_path, class: "buttoncute"%>
 	</div>
 
-  </div>
